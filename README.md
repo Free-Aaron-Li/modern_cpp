@@ -11,13 +11,23 @@
 ### 1. 智能指针与 RAII (Smart Pointers & RAII)
 
 - **RAII 手法**：展示如何通过对象的生命周期自动管理资源。
-- **内存管理**：后续将涵盖 `std::unique_ptr`、`std::shared_ptr` 和 `std::weak_ptr` 的深入解析。
+- **内存管理**：涵盖了 `std::shared_ptr` 的基本用法，后续将深入探讨 `std::unique_ptr` 和 `std::weak_ptr`。
+
+### 学习笔记系列
+
+- **[智能指针概说](docs/1_智能指针概说.md)**: 深入探讨 C++ 内存管理、RAII 原理及智能指针细节。
+	- 内存管理基础：堆与栈的区别。
+	- RAII 原理：如何利用对象生命周期管理资源。
+	- 智能指针深挖：`shared_ptr` 的实现细节、原子计数与性能考量。
 
 ## 目录结构
 
+- `docs/`: 包含详细的学习笔记。
+	- `1_智能指针概说.md`: 智能指针与 RAII 的详细解析。
 - `smart_pointer/`: 包含智能指针与 RAII 相关的实现。
 	- `include/`: 头文件目录。
 		- `raii.hpp`: RAII 核心原理解析与测试类。
+		- `shared_ptr.hpp`: std::shared_ptr 示例。
 		- `sp.hpp`: 智能指针模块主头文件。
 	- `src/`: 源代码目录。
 		- `main.cpp`: 演示程序入口。

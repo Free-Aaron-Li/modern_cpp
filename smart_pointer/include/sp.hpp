@@ -29,36 +29,52 @@
  * 涵盖了从最基础的 RAII（资源获取即初始化）手法到高级的智能指针应用。
  *
  * ### 核心学习点：
+ *
  * - **RAII 手法**：理解对象生命周期与资源管理的绑定关系。
  * - **独占所有权**：`std::unique_ptr` 的实现与应用（规划中）。
- * - **引用计数**：`std::shared_ptr` 的原理（规划中）。
+ * - **引用计数**：`std::shared_ptr` 的原理与应用。
  *
  * @section dependencies_sec 依赖项
  *
  * 本模块主要依赖于 C++ 标准库，以展示原生特性的使用：
  * - `<iostream>`: 用于演示输出。
- * - `<memory>`: 提供标准智能指针支持（后续引入）。
+ * - `<memory>`: 提供标准智能指针支持。
  *
  * @section usage_sec 快速开始
  *
- * 1. 包含主头文件：
+ * 1. 包含相关头文件：
  *    @code{.cpp}
  *    #include "raii.hpp"
+ *    #include "shared_ptr.hpp"
  *    @endcode
  * 2. 编写符合 RAII 原则的代码：
  *    @code{.cpp}
  *    {
  *        CRAII manager(new RAII_TEST());
- *        // 离开作用域时 manager 自动释放资源
+ *        // 离开作用域时 manager 自动通过析构函数释放管理的 RAII_TEST 对象
+ *    }
+ *    @endcode
+ * 3. 使用 `std::shared_ptr`：
+ *    @code{.cpp}
+ *    {
+ *        auto sp = std::make_shared<SHARED_PTR_TEST>();
+ *        // 多个 shared_ptr 可以共享同一个对象，引用计数归零时对象被销毁
  *    }
  *    @endcode
  *
+ * @section docs_sec 深入阅读
+ *
+ * - @ref smart_pointer_doc "智能指针概说"
+ *
  * @section group_sec 相关模块
  * - @ref sp_raii_group "RAII 手法实现"
+ * - @ref sp_shared_ptr_group "引用计数智能指针 (shared_ptr)"
  *
  * @copyright Copyright (c) 2026 Aaron.
  */
 
 #include <iostream>
+#include <memory>
+#include <vector>
 
 #endif //MODERN_CPP_SP_HPP

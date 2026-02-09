@@ -36,7 +36,10 @@
  * 
  * ### 模块内容：
  * - @ref RAII_TEST : 一个简单的类，用于观察构造和析构的调用。
- * - @ref CRAII : 一个 RAII 管理类，演示如何自动管理 `RAII_TEST` 对象的生命周期。
+ * - @ref CRAII : 一个 RAII 管理类，演示如何自动管理资源的生命周期。
+ * 
+ * ### 相关文档：
+ * - @ref smart_pointer_doc "智能指针概说 - RAII 章节"
  */
 
 /**

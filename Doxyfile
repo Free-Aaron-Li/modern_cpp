@@ -291,7 +291,7 @@ TAB_SIZE               = 4
 # with the commands \{ and \} for these it is advised to use the version @{ and
 # @} or use a double escape (\\{ and \\})
 
-ALIASES                =
+ALIASES                = "mark{1}=\htmlonly <mark>\1</mark> \endhtmlonly"
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C sources
 # only. Doxygen will then generate output that is more tailored for C. For
@@ -1186,7 +1186,9 @@ INPUT_FILTER           =
 # need to set EXTENSION_MAPPING for the extension otherwise the files are not
 # properly processed by Doxygen.
 
-FILTER_PATTERNS        =
+FILTER_PATTERNS        = *.md="sed -e 's/==\([^=]*\)==/@mark{\1}/g' -e 's/\*\*\([^*]*\)\*\*/<b>\1<\/b>/g'" \
+                         *.hpp="sed -e 's/==\([^=]*\)==/@mark{\1}/g' -e 's/\*\*\([^*]*\)\*\*/<b>\1<\/b>/g'" \
+                         *.cpp="sed -e 's/==\([^=]*\)==/@mark{\1}/g' -e 's/\*\*\([^*]*\)\*\*/<b>\1<\/b>/g'"
 
 # If the FILTER_SOURCE_FILES tag is set to YES, the input filter (if set using
 # INPUT_FILTER) will also be used to filter the input files that are used for
