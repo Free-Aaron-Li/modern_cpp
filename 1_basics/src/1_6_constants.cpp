@@ -27,7 +27,7 @@ const_square(double x) {
  * @ingroup basics_group
  * @brief 演示常量 (const 和 constexpr)
  * 
- * 对应《C++之旅》1.6 节
+ * 对应《C++ 之旅》1.6 节
  */
 void
 tutorial_constants() {

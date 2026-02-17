@@ -18,6 +18,10 @@
 
 using namespace std;
 
+/**
+ * @brief 获取用户输入并返回布尔值
+ * @return 如果用户输入 'y' 返回 true，否则返回 false
+ */
 bool
 accept() {
     cout << "Do you want to proceed (y or n)?\n";
@@ -32,7 +36,7 @@ accept() {
  * @ingroup basics_group
  * @brief 演示条件判断与循环
  * 
- * 对应《C++之旅》1.8 节
+ * 对应《C++ 之旅》1.8 节
  */
 void
 tutorial_tests() {

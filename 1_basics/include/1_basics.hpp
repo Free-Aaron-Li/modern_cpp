@@ -25,13 +25,15 @@
  *
  * @section intro_basics_sec 章节概述
  *
- * 本章节是 Modern CPP 学习项目的起始章节，涵盖了 C++ 的核心语言特性和标准库组件的基础概念。
- * 内容参考自 Bjarne Stroustrup 的《C++之旅》（A Tour of C++）。
+ * 本章节涵盖了 C++ 的核心语言特性和标准库组件的基础概念，是 Modern CPP 学习项目的起始。
+ * 内容参考自 Bjarne Stroustrup 的《C++ 之旅》（A Tour of C++）。
  *
  * ### 核心学习点：
  *
- * - **语言实体**：理解核心语言特性与标准库组件的区别。
- * - **程序基础**：掌握 C++ 程序的基本构成。
+ * - **1.2 程序**：理解 C++ 程序的编译与执行流，掌握命名空间 `std` 的基本用法。
+ * - **1.3 函数**：学习函数的声明、定义、参数传递及重载机制。
+ * - **1.4 类型、变量与算术**：深入理解静态类型系统、内置类型尺寸及统一初始化。
+ * - **1.6 常量**：区分 `const` 与 `constexpr` 的语义及应用场景。
  *
  * @section docs_basics_sec 深入阅读
  *
@@ -40,6 +42,7 @@
  * @copyright Copyright (c) 2026 Aaron.
  */
 #include <iostream>
+#include <vector>
 
 /**
  * @defgroup basics_group 第1章 基础示例
@@ -47,19 +50,28 @@
  */
 
 /**
- * @brief 演示 C++ 程序的基本结构
+ * @brief 1.2 程序：演示 C++ 程序的基本结构
+ * 
+ * 展示了如何定义 main 函数以外的辅助函数，以及如何使用标准库中的 I/O 流。
+ * 包含函数：square(), print_square()
  */
 void
 tutorial_program();
 
 /**
- * @brief 演示函数的定义与调用
+ * @brief 1.3 函数：演示函数的定义与调用
+ * 
+ * 重点展示 C++ 的函数重载（Overloading）机制，即同名函数根据参数列表不同而区分。
+ * 包含函数：print(int, double), print(double, int)
  */
 void
 tutorial_functions();
 
 /**
- * @brief 演示内置类型与算术运算
+ * @brief 1.4 类型、变量与算术：演示内置类型与算术运算
+ * 
+ * 展示了 C++ 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等多种字面量的表示方法。
+ * 包含函数：size_of_type(), print_num()
  */
 void
 tutorial_types();

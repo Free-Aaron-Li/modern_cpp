@@ -35,15 +35,14 @@ int
 main() {
     /* 1. 开始演示 RAII 手法 */
     {
-
         /**
          * @brief 演示步骤：
          * 1. 显式创建一个 `RAII_TEST` 对象的裸指针。
          * 2. 创建 `CRAII` 对象 `c`，并将裸指针传递给它，由其接管生命周期。
          * 3. 当花括号结束，`c` 离开作用域被销毁，其析构函数负责 `delete` 裸指针。
          */
-        RAII_TEST* p = new RAII_TEST(); /* 创建裸指针 */
-        CRAII c(p); /* 使用CRAII管理p */
+        RAII_TEST *p = new RAII_TEST(); /* 创建裸指针 */
+        CRAII c(p); /* 使用 CRAII 管理 p */
 
         /* 
          * 预期输出：
@@ -51,7 +50,6 @@ main() {
          * ~CRAII()
          * ~raii_test()
          */
-
     }
 
     /* 2. 开始演示 shared_ptr 手法 */
@@ -65,11 +63,11 @@ main() {
          * 5. 局部作用域结束，`sp3` 销毁，引用计数减少。
          * 6. `main` 函数结束前，所有 `shared_ptr` 离开作用域，资源被最终释放。
          */
-        SHARED_PTR_TEST* p = new SHARED_PTR_TEST(); /* 成为悬空指针 */
+        SHARED_PTR_TEST *p = new SHARED_PTR_TEST(); /* 成为悬空指针 */
         std::shared_ptr<SHARED_PTR_TEST> sp(p);
         std::shared_ptr<SHARED_PTR_TEST> sp1(new SHARED_PTR_TEST());
 
-        /* 通过一个shared_ptr对象构造 */
+        /* 通过一个 shared_ptr 对象构造 */
         std::shared_ptr<SHARED_PTR_TEST> sp2(sp);
 
         /* use count 变化 */
@@ -88,7 +86,7 @@ main() {
     /* 3. shared_ptr 使用注意事项 */
     {
         /* 3.1 避免使用同一个裸指针初始化多个独立的 shared_ptr 对象 */
-        int* p = new int(10);
+        int *p = new int(10);
         std::shared_ptr<int> sp1(p); /* use_count 为 1 */
         std::cout << "sp1 use_count: " << sp1.use_count() << std::endl;
         // std::shared_ptr<int> sp2(p); /* 错误：sp2 也会认为自己独占 p */
@@ -102,15 +100,14 @@ main() {
         std::cout << "CSPTEST processed." << std::endl;
     }
 
-    /* 4. shared_ptr的细节 */
+    /* 4. shared_ptr 的细节 */
     {
-        /* 4.1 shared_ptr一般大小是裸指针的两倍 */
-        int* p = new int(10);
+        /* 4.1 shared_ptr 一般大小是裸指针的两倍 */
+        int *p = new int(10);
         std::shared_ptr<int> sp(p);
         std::cout << "p size: " << sizeof(p) << ", sp size: " << sizeof(sp) <<
                 "." << std::endl;
     }
 
     return 0;
-
 }

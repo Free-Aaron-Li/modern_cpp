@@ -24,7 +24,7 @@
  * @brief RAII (Resource Acquisition Is Initialization) 手法模块。
  * @details 
  * ### RAII 简介
- * RAII（资源获取即初始化）是一种 C++ 编程技术，它将资源的生命周期与对象的生命周期绑定在一起。
+ * RAII (资源获取即初始化) 是一种 C++ 编程技术，它将资源的生命周期与对象的生命周期绑定在一起。
  * 
  * #### 核心原理：
  * 1. 获取资源即初始化：在构造函数中获取资源（如内存、文件句柄、互斥锁等）。
@@ -78,7 +78,7 @@ public:
      * @brief 构造函数，接管资源。
      * @param p 指向需要管理的 RAII_TEST 对象的指针。
      */
-    CRAII(RAII_TEST* p) {
+    CRAII(RAII_TEST *p) {
         raii_test_ = p;
     }
 
@@ -93,7 +93,7 @@ public:
     }
 
 private:
-    RAII_TEST* raii_test_; ///< 被管理的资源指针
+    RAII_TEST *raii_test_; ///< 被管理的资源指针
 };
 
 

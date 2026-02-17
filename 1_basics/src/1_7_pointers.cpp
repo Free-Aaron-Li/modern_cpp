@@ -22,7 +22,7 @@ using namespace std;
  * @ingroup basics_group
  * @brief 演示指针、数组与引用
  * 
- * 对应《C++之旅》1.7 节
+ * 对应《C++ 之旅》1.7 节
  */
 void
 tutorial_pointers() {
