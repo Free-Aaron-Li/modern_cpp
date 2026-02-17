@@ -15,7 +15,7 @@
  */
 #include "1_basics.hpp"
 
-using namespace std; /* 使用 std 中的名称在不用 std:: 时可见 */
+using namespace std; /* 使 std 中的名称在不加 std:: 前缀时可见 */
 
 /**
  * @brief 计算双精度浮点数的平方

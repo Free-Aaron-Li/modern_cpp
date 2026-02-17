@@ -18,9 +18,38 @@
 
 using namespace std;
 
+/**
+ * @brief 计算平方（可用于常量表达式）。
+ * @param value 待求平方的数值（按引用传入，但不会被修改）
+ * @return `value * value`
+ */
 constexpr double
-const_square(double x) {
-    return x * x;
+square(const double& value) { /* 函数不会修改传入参数值 */
+    return value * value;
+}
+
+/**
+ * @brief 在编译期强制求值的平方函数。
+ * @param value 常量表达式参数
+ * @return `value * value`
+ */
+consteval double
+square1(const double& value) {
+    return value * value;
+}
+
+/**
+ * @brief 计算向量中所有元素之和（运行期）。
+ * @param value 数值向量
+ * @return 所有元素的累加和
+ */
+double
+sum(const vector<double>& value) {
+    double sum = 0;
+    for (const double& v: value) {
+        sum += v;
+    }
+    return sum;
 }
 
 /**
@@ -32,13 +61,23 @@ const_square(double x) {
 void
 tutorial_constants() {
     cout << "--- 1.6 Constants ---" << endl;
+    constexpr int dmv{ 17 }; /* dmv是一个命名常量 */
+    int var{ 17 }; /* var不是常量 */
+    const double sqv{ square(var) }; /* sqv是一个命名常量，可能在运行时计算 */
+    cout << "dmv: " << dmv << ", var: " << var << ", sqv: " << sqv << endl;
 
-    const int dmv = 17; // dmv 是一个常量
-    int var = 17;
+    vector<double> v{ 1.2, 3.4, 5.6 };
+    const double s1{ sum(v) }; /* 可行：sum(v)在运行时计算 */
+    //constexpr double s2{ sum(v) }; /* 错误：sum(v)在编译时无法求值 */
+    cout << "s1: " << s1 << endl;
 
-    constexpr double max1 = 1.4 * const_square(dmv); // OK
-    // constexpr double max2 = 1.4 * const_square(var); // Error: var 不是常量表达式
-    const double max3 = 1.4 * const_square(var); // OK, 在运行时求值
+    constexpr double max1{ 1.4 * square(17) }; /* 可行：全参数为字面值 */
+    //constexpr double max2{ 1.4 * square(var) }; /* 错误：var不是常量，所以常量表达式不成立 */
+    const double max3{ 1.4 * square(var) }; /* 可行：允许在运行时计算 */
 
     cout << "max1: " << max1 << ", max3: " << max3 << endl;
+
+    const double max4{ 1.4 * square1(17) }; /* 可行：全参数为字面值 */
+    //const double max5{ 1.4 * square1(var) }; /* 错误：consteval不允许非常量 */
+    cout << "max4: " << max4 << endl;
 }
