@@ -36,10 +36,11 @@
  * - **1.6 常量**：区分 `const` 与 `constexpr` 的语义及应用场景。
  * - **1.7 指针、数组与引用**：掌握 C++ 原生数组、指针操作及引用的基本用法。
  * - **1.8 检验**：学习 `if`、`switch` 等条件分支及各类循环结构。
+ * - **1.9 映射到硬件**：理解内置类型与机器指令的映射、内存地址模型与指针的关系。
  *
  * @section docs_basics_sec 深入阅读
  *
- * - @ref basics_doc "第1章 基础"
+ * - @ref basics_doc "第 1 章 基础"
  *
  * @copyright Copyright (c) 2026 Aaron.
  */
@@ -47,7 +48,7 @@
 #include <vector>
 
 /**
- * @defgroup basics_group 第1章 基础示例
+ * @defgroup basics_group 第 1 章 基础示例
  * @{
  */
 

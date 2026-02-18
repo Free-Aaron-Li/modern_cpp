@@ -18,7 +18,7 @@
 #include "1_basics.hpp"
 
 /**
- * @brief 第1章 基础示例程序入口
+ * @brief 第 1 章 基础示例程序入口
  */
 int
 main() {
