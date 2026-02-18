@@ -26,7 +26,7 @@
  * @section intro_sec 模块概述
  *
  * 本模块是 Modern CPP 学习项目的核心部分之一，专注于现代 C++ 中的内存管理机制。
- * 涵盖了从最基础的 RAII (资源获取即初始化) 手法到高级的智能指针应用。
+ * 涵盖了从最基础的 RAII（资源获取即初始化）手法到高级的智能指针应用。
  *
  * ### 核心学习点：
  *
@@ -51,7 +51,7 @@
  *    @code{.cpp}
  *    {
  *        CRAII manager(new RAII_TEST());
- *        // 离开作用域时 manager 自动通过析构函数释放管理的 RAII_TEST 对象
+ *        // 离开作用域时 manager 自动通过析构函数释放管理的 RAII_TEST 对象。
  *    }
  *    @endcode
  * 3. 使用 `std::shared_ptr`：

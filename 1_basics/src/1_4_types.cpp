@@ -61,6 +61,11 @@ print_num() {
     cout << "i4 (octal 0334): " << i4 << endl;
 }
 
+/**
+ * @brief 演示统一初始化与窄化转换
+ * 
+ * 展示了 C++11 引入的统一初始化（Uniform Initialization）语法，以及它如何通过禁止窄化转换来提高代码安全性。
+ */
 void
 initialization_list() {
     double d1{ 2.3 };

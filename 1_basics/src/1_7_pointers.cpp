@@ -19,6 +19,34 @@
 using namespace std;
 
 /**
+ * @brief 演示数组遍历（范围 for）
+ */
+void
+print() {
+    int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    for (auto x: v) { /* 通过 x 遍历 v 中的每个元素 */
+        cout << x << "\n";
+    }
+
+    for (auto x: { 10, 21, 32, 43, 54, 65 }) {
+        cout << x << "\n";
+    }
+}
+
+/**
+ * @brief 演示通过引用遍历数组并累加
+ */
+void
+increment() {
+    int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    int res{ 0 };
+    for (auto& x: v) { /* 通过引用 x 遍历 v 中的每个元素，节约资源 */
+        res += x;
+    }
+    cout << "total of v is: " << res << "\n";
+}
+
+/**
  * @ingroup basics_group
  * @brief 演示指针、数组与引用
  * 
@@ -27,22 +55,9 @@ using namespace std;
 void
 tutorial_pointers() {
     cout << "--- 1.7 Pointers, Arrays, and References ---" << endl;
-
-    int v[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}; // 数组
-
-    for (auto x: v) { // 范围 for 循环 (拷贝)
-        cout << x << " ";
-    }
-    cout << endl;
-
-    for (auto &x: v) { // 范围 for 循环 (引用)
-        x += 1;
-    }
-
-    int *p = &v[3]; // 指针
-    cout << "p points to: " << *p << endl;
-
-    int &r = v[4]; // 引用
-    r = 100;
-    cout << "v[4] is now: " << v[4] << endl;
+    print();
+    increment();
+    double* pd{ nullptr };
+    vector<int>* pl{ nullptr }; /* 指向空指针 */
+    // int x = nullptr; /* 错误：不能在初始化时将‘std::nullptr_t’转换为‘int’ */
 }
