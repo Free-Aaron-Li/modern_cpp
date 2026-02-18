@@ -100,7 +100,7 @@ tutorial_pointers();
  * @brief 1.8 检验：演示条件判断与循环
  * 
  * 展示交互式输入处理、`if-else` 分支、`switch-case` 结构及各类循环。
- * 包含函数：`accept()`
+ * 包含函数：`accept()`, `accept2()`, `action()`
  */
 void
 tutorial_tests();

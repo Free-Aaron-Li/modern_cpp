@@ -57,7 +57,7 @@ tutorial_pointers() {
     cout << "--- 1.7 Pointers, Arrays, and References ---" << endl;
     print();
     increment();
-    double* pd{ nullptr };
-    vector<int>* pl{ nullptr }; /* 指向空指针 */
+    [[maybe_unused]] double* pd{ nullptr };
+    [[maybe_unused]] vector<int>* pl{ nullptr }; /* 指向空指针 */
     // int x = nullptr; /* 错误：不能在初始化时将‘std::nullptr_t’转换为‘int’ */
 }
