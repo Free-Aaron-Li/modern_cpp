@@ -26,15 +26,14 @@ using namespace std; /* 使 std 中的名称在不加 std:: 前缀时可见 */
  * 位置：1_basics/src/1_2_program.cpp
  */
 double
-square(double x) {
-    return x * x;
-}
+square(double x) { return x * x; }
 
 /**
  * @brief 在标准输出中打印一个数值及其平方结果
  * @param x 需要打印的数值
  * 
- * 该函数内部调用了 square() 函数，演示了函数间的相互调用以及 std::cout 的格式化输出。
+ * 该函数内部调用了 square() 函数，演示了函数间的相互调用以及 std::cout 的格式化
+ * 输出。
  */
 void
 print_square(double x) {
@@ -51,7 +50,9 @@ print_square(double x) {
 void
 tutorial_program() {
     cout << "--- 1.2 Program ---" << endl;
-    std::cout << "Hello World!" << std::endl; /* std:: 前缀明确指定了 cout 的命名空间。 */
-    cout << "not using std::" << endl; /* 由于使用了 'using namespace std;'，可以直接调用。 */
+    std::cout << "Hello World!" << std::endl; /* std:: 前缀明确指定了 cout 的命
+    名空间。 */
+    cout << "not using std::" << endl;
+    /* 由于使用了 'using namespace std;'，可以直接调用。 */
     print_square(1.234);
 }

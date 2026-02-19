@@ -21,13 +21,17 @@
  */
 int
 main() {
-    std::cout << "========== Modern CPP: Chapter 2 User-Defined Types ==========" << std::endl;
+    std::cout
+            << "========== Modern CPP: Chapter 2 User-Defined Types =========="
+            << std::endl;
 
     tutorial_structs();
     tutorial_classes();
     tutorial_enums();
     tutorial_unions();
 
-    std::cout << "==============================================================" << std::endl;
+    std::cout
+            << "=============================================================="
+            << std::endl;
     return 0;
 }

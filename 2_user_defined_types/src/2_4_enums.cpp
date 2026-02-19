@@ -20,7 +20,8 @@ enum class Color { red, blue, green };
 
 enum class Traffic_light { green, yellow, red };
 
-Traffic_light &operator++(Traffic_light &t) {
+Traffic_light&
+operator++(Traffic_light& t) {
     switch (t) {
         case Traffic_light::green: return t = Traffic_light::yellow;
         case Traffic_light::yellow: return t = Traffic_light::red;
@@ -29,17 +30,24 @@ Traffic_light &operator++(Traffic_light &t) {
     return t;
 }
 
-void tutorial_enums() {
-    std::cout << "\n2.4 枚举 (enum)" << std::endl;
+/**
+ * @ingroup user_defined_types_group
+ * @brief 2.4 枚举：演示 enum class 与普通 enum
+ * 
+ * 比较强类型枚举（scoped enums）与传统枚举的区别。
+ * 
+ * 对应《C++ 之旅》2.4 节。
+ */
+void
+tutorial_enums() {
+    std::cout << "--- 2.4 Enums ---" << std::endl;
     Color col = Color::red;
     Traffic_light light = Traffic_light::red;
     if (col == Color::red) {
         // use col to avoid warning
     }
 
-    if (light == Traffic_light::red) {
-        ++light;
-    }
+    if (light == Traffic_light::red) { ++light; }
 
     if (light == Traffic_light::green) {
         std::cout << "Light is now green" << std::endl;

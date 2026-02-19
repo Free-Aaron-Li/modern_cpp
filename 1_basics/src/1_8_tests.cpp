@@ -39,16 +39,13 @@ accept() {
 bool
 accept2() {
     cout << "Do you want to proceed (y or n)?\n"; /* 输出提问 */
-    char answer{ 0 }; /* 初始化为用户不可能输入的值 */
-    cin >> answer; /* 读取用户输入 */
+    char answer{ 0 };                             /* 初始化为用户不可能输入值 */
+    cin >> answer;                                /* 读取用户输入 */
 
     switch (answer) {
-        case 'y':
-            return true;
-        case 'n':
-            return false;
-        default:
-            cout << "I'll take that for a no.\n";
+        case 'y': return true;
+        case 'n': return false;
+        default: cout << "I'll take that for a no.\n";
             return false;
     }
 }
@@ -70,7 +67,9 @@ struct Point {
 void
 action() {
     while (true) {
-        cout << "enter action (u:up, n:up, r:right, e:right, other:freeze, q:quit):\n"; /* 请求动作 */
+        cout <<
+                "enter action (u:up, n:up, r:right, e:right, other:freeze, q:quit):\n";
+        /* 请求动作 */
         string act;
         cin >> act; /* 将字符读到字符串 */
         if (act == "q") break;
@@ -78,15 +77,12 @@ action() {
         for (char ch: act) {
             switch (ch) {
                 case 'u':
-                case 'n':
-                    ++delta.y_;
+                case 'n': ++delta.y_;
                     break;
                 case 'r':
-                case 'e':
-                    ++delta.x_;
+                case 'e': ++delta.x_;
                     break;
-                default:
-                    cout << "I freeze!\n";
+                default: cout << "I freeze!\n";
             }
         }
         cout << "delta:" << delta.x_ << "," << delta.y_ << endl;

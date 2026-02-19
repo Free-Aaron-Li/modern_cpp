@@ -18,27 +18,38 @@
 
 class Vector {
 public:
-    Vector(int s) : elem{new double[s]}, sz{s} {
+    Vector(int s) : elem{ new double[s] }, sz{ s } {}
+
+    double&
+    operator[](int i) {
+        return elem[i];
     }
 
-    double &operator[](int i) { return elem[i]; }
-    int size() { return sz; }
+    int
+    size() {
+        return sz;
+    }
 
 private:
-    double *elem;
+    double* elem;
     int sz;
 };
 
-void tutorial_classes() {
-    std::cout << "\n2.3 类 (class)" << std::endl;
+/**
+ * @ingroup user_defined_types_group
+ * @brief 2.3 类：演示 class 的封装与接口设计
+ *
+ * 介绍通过 public 和 private 关键字实现的访问控制，以及成员函数的定义。
+ *
+ * 对应《C++ 之旅》2.3 节。
+ */
+void
+tutorial_classes() {
+    std::cout << "--- 2.3 Classes ---" << std::endl;
     Vector v(6);
-    for (int i = 0; i < v.size(); ++i) {
-        v[i] = i * 1.1;
-    }
+    for (int i = 0; i < v.size(); ++i) { v[i] = i * 1.1; }
 
     double sum = 0;
-    for (int i = 0; i < v.size(); ++i) {
-        sum += v[i];
-    }
+    for (int i = 0; i < v.size(); ++i) { sum += v[i]; }
     std::cout << "Vector sum: " << sum << std::endl;
 }

@@ -22,7 +22,8 @@
  */
 int
 main() {
-    std::cout << "========== Modern CPP: Chapter 1 Basics ==========" << std::endl;
+    std::cout << "========== Modern CPP: Chapter 1 Basics =========="
+              << std::endl;
 
     tutorial_program();
     tutorial_functions();
@@ -31,6 +32,7 @@ main() {
     tutorial_pointers();
     tutorial_tests();
 
-    std::cout << "==================================================" << std::endl;
+    std::cout << "=================================================="
+              << std::endl;
     return 0;
 }

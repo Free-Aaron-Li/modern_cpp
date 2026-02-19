@@ -46,38 +46,38 @@ square1(const double& value) {
 double
 sum(const vector<double>& value) {
     double sum = 0;
-    for (const double& v: value) {
-        sum += v;
-    }
+    for (const double& v: value) { sum += v; }
     return sum;
 }
 
 /**
  * @ingroup basics_group
  * @brief 演示常量 (const 和 constexpr)
- * 
+ *
  * 对应《C++ 之旅》1.6 节
  */
 void
 tutorial_constants() {
     cout << "--- 1.6 Constants ---" << endl;
-    constexpr int dmv{ 17 }; /* dmv 是一个命名常量 */
-    int var{ 17 }; /* var 不是常量 */
+    constexpr int dmv{ 17 };         /* dmv 是一个命名常量 */
+    int var{ 17 };                   /* var 不是常量 */
     const double sqv{ square(var) }; /* sqv 是一个命名常量，可能在运行时计算 */
     cout << "dmv: " << dmv << ", var: " << var << ", sqv: " << sqv << endl;
 
     vector<double> v{ 1.2, 3.4, 5.6 };
     const double s1{ sum(v) }; /* 可行：sum(v) 在运行时计算 */
-    //constexpr double s2{ sum(v) }; /* 错误：sum(v) 在编译时无法求值 */
+    // constexpr double s2{ sum(v) }; /* 错误：sum(v) 在编译时无法求值 */
     cout << "s1: " << s1 << endl;
 
     constexpr double max1{ 1.4 * square(17) }; /* 可行：全参数为字面值 */
-    //constexpr double max2{ 1.4 * square(var) }; /* 错误：var 不是常量，所以常量表达式不成立 */
+    // constexpr double max2{ 1.4 * square(var) }; /* 错误：var
+    // 不是常量，所以常量表达式不成立 */
     const double max3{ 1.4 * square(var) }; /* 可行：允许在运行时计算 */
 
     cout << "max1: " << max1 << ", max3: " << max3 << endl;
 
     const double max4{ 1.4 * square1(17) }; /* 可行：全参数为字面值 */
-    //const double max5{ 1.4 * square1(var) }; /* 错误：consteval 不允许非常量 */
+    // const double max5{ 1.4 * square1(var) }; /* 错误：consteval 不允许非常量
+    // */
     cout << "max4: " << max4 << endl;
 }

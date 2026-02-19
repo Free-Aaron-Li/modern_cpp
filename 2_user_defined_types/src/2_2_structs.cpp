@@ -23,7 +23,7 @@ using namespace std;
  */
 struct Vector {
     double* elem; /**< 指向元素的指针 */
-    int sz_; /**< 元素的数量 */
+    int sz_;      /**< 元素的数量 */
 };
 
 /**
@@ -35,8 +35,11 @@ struct Vector {
  */
 void
 vector_init(Vector& v, int s) { /* 非 const 引用参数，允许修改 v */
-    v.elem = new double[s]; /* 分配数组空间，包含 s 个 double 类型的值 */
-    /* new 从自由存储（即动态内存或堆）中分配内存，与对象创建时所在的作用域无关，会持续存在，直至被 `delete` 释放 */
+    v.elem = new double[s];     /* 分配数组空间，包含 s 个 double 类型的值 */
+    /* new
+     * 从自由存储（即动态内存或堆）中分配内存，与对象创建时所在的作用域无关，
+     * 会持续存在，直至被
+     * `delete` 释放 */
     v.sz_ = s;
 }
 
@@ -50,12 +53,10 @@ read_and_sum(int s) {
     Vector v;
     vector_init(v, s); /* 为 v 分配 s 个元素 */
 
-    for (int i = 0; i != s; ++i)
-        cin >> v.elem[i]; /* 读入元素 */
+    for (int i = 0; i != s; ++i) cin >> v.elem[i]; /* 读入元素 */
 
     double sum = 0;
-    for (int i = 0; i != s; ++i)
-        sum += v.elem[i]; /* 计算元素的和 */
+    for (int i = 0; i != s; ++i) sum += v.elem[i]; /* 计算元素的和 */
     return sum;
 }
 
@@ -67,16 +68,22 @@ read_and_sum(int s) {
  */
 void
 f(Vector v, Vector& rv, Vector* pv) {
-    [[maybe_unused]] int i1{ v.sz_ }; /* 通过名字访问 */
-    [[maybe_unused]] int i2{ rv.sz_ }; /* 通过引用访问 */
+    /* [[maybe_unused]] C++17
+     * 属性，告诉编译器即使这个变量/参数/函数/返回值未被使用，
+     * 也不要报“unused...”之类警告
+     */
+    [[maybe_unused]] int i1{ v.sz_ };   /* 通过名字访问 */
+    [[maybe_unused]] int i2{ rv.sz_ };  /* 通过引用访问 */
     [[maybe_unused]] int i3{ pv->sz_ }; /* 通过指针访问 */
 }
 
 /**
  * @ingroup user_defined_types_group
  * @brief 2.2 结构体：演示 struct 的定义与初始化
- * 
+ *
  * 展示如何定义结构体、在堆上分配内存以及通过不同方式访问成员。
+ *
+ * 对应《C++ 之旅》2.2 节。
  */
 void
 tutorial_structs() {
