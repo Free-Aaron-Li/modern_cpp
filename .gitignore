@@ -43,3 +43,11 @@ doxygen/
 
 # Temporary files
 .output.txt
+
+# bakup files
+smart_pointer.bak/
+*.bak
+*.bakup
+
+# ai conf
+.ai/

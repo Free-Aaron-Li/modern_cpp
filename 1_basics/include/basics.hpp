@@ -14,33 +14,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#ifndef MODERN_CPP_1_BASICS_HPP
-#define MODERN_CPP_1_BASICS_HPP
+#ifndef MODERN_CPP_BASICS_HPP
+#define MODERN_CPP_BASICS_HPP
 
 /**
- * @file 1_basics.hpp
+ * @file basics.hpp
  * @brief 基础章节主头文件
- *
- * @page basics_page 基础章节文档
- *
- * @section intro_basics_sec 章节概述
- *
- * 本章节涵盖了 C++ 的核心语言特性和标准库组件的基础概念，是 Modern C++ 学习项目的起始。
- * 内容参考自 Bjarne Stroustrup 的《C++ 之旅》(A Tour of C++)。
- *
- * ### 核心学习点：
- *
- * - **1.2 程序**：理解 C++ 程序的编译与执行流，掌握命名空间 `std` 的基本用法。
- * - **1.3 函数**：学习函数的声明、定义、参数传递及重载机制。
- * - **1.4 类型、变量与算术**：深入理解静态类型系统、内置类型尺寸及统一初始化。
- * - **1.6 常量**：区分 `const` 与 `constexpr` 的语义及应用场景。
- * - **1.7 指针、数组与引用**：掌握 C++ 原生数组、指针操作及引用的基本用法。
- * - **1.8 检验**：学习 `if`、`switch` 等条件分支及各类循环结构。
- * - **1.9 映射到硬件**：理解内置类型与机器指令的映射、内存地址模型与指针的关系。
- *
- * @section docs_basics_sec 深入阅读
- *
- * - @ref basics_doc "第 1 章 基础"
  *
  * @copyright Copyright (c) 2026 Aaron.
  */
@@ -48,7 +27,7 @@
 #include <vector>
 
 /**
- * @defgroup basics_group 第 1 章 基础示例
+ * @defgroup basics_group 1_基础
  * @{
  */
 
@@ -108,4 +87,4 @@ tutorial_tests();
 
 /** @} */
 
-#endif //MODERN_CPP_1_BASICS_HPP
+#endif //MODERN_CPP_BASICS_HPP

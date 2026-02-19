@@ -14,23 +14,31 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "user_defined_types.hpp"
 
-#include "basics.hpp"
+class Vector {
+public:
+    Vector(int s) : elem{new double[s]}, sz{s} {
+    }
 
-/**
- * @brief 第 1 章 基础示例程序入口
- */
-int
-main() {
-    std::cout << "========== Modern CPP: Chapter 1 Basics ==========" << std::endl;
+    double &operator[](int i) { return elem[i]; }
+    int size() { return sz; }
 
-    tutorial_program();
-    tutorial_functions();
-    tutorial_types();
-    tutorial_constants();
-    tutorial_pointers();
-    tutorial_tests();
+private:
+    double *elem;
+    int sz;
+};
 
-    std::cout << "==================================================" << std::endl;
-    return 0;
+void tutorial_classes() {
+    std::cout << "\n2.3 类 (class)" << std::endl;
+    Vector v(6);
+    for (int i = 0; i < v.size(); ++i) {
+        v[i] = i * 1.1;
+    }
+
+    double sum = 0;
+    for (int i = 0; i < v.size(); ++i) {
+        sum += v[i];
+    }
+    std::cout << "Vector sum: " << sum << std::endl;
 }

@@ -14,23 +14,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "user_defined_types.hpp"
 
-#include "basics.hpp"
+int main() {
+    std::cout << "--- 第 2 章 用户自定义类型 ---" << std::endl;
 
-/**
- * @brief 第 1 章 基础示例程序入口
- */
-int
-main() {
-    std::cout << "========== Modern CPP: Chapter 1 Basics ==========" << std::endl;
+    tutorial_structs();
+    tutorial_classes();
+    tutorial_enums();
+    tutorial_unions();
 
-    tutorial_program();
-    tutorial_functions();
-    tutorial_types();
-    tutorial_constants();
-    tutorial_pointers();
-    tutorial_tests();
-
-    std::cout << "==================================================" << std::endl;
     return 0;
 }

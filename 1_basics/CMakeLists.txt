@@ -1,6 +1,6 @@
 add_executable(1_basics
                src/main.cpp
-               include/1_basics.hpp
+               include/basics.hpp
                src/1_2_program.cpp
                src/1_3_functions.cpp
                src/1_4_types.cpp

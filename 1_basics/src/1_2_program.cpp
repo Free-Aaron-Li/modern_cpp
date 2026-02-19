@@ -13,7 +13,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-#include "1_basics.hpp"
+#include "basics.hpp"
 
 using namespace std; /* 使 std 中的名称在不加 std:: 前缀时可见 */
 

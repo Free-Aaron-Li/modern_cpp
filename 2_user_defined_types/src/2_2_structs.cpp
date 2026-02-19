@@ -14,23 +14,32 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "user_defined_types.hpp"
 
-#include "basics.hpp"
+struct Vector {
+    double sz;
+    double *elem;
+};
 
-/**
- * @brief 第 1 章 基础示例程序入口
- */
-int
-main() {
-    std::cout << "========== Modern CPP: Chapter 1 Basics ==========" << std::endl;
+void vector_init(Vector &v, int s) {
+    v.elem = new double[s];
+    v.sz = s;
+}
 
-    tutorial_program();
-    tutorial_functions();
-    tutorial_types();
-    tutorial_constants();
-    tutorial_pointers();
-    tutorial_tests();
+double read_and_sum(int s) {
+    Vector v;
+    vector_init(v, s);
+    for (int i = 0; i != s; ++i)
+        v.elem[i] = i; // 仅作为示例
 
-    std::cout << "==================================================" << std::endl;
-    return 0;
+    double sum = 0;
+    for (int i = 0; i != s; ++i)
+        sum += v.elem[i];
+    return sum;
+}
+
+void tutorial_structs() {
+    std::cout << "2.2 结构体 (struct)" << std::endl;
+    double s = read_and_sum(10);
+    std::cout << "Sum of 10 elements: " << s << std::endl;
 }
