@@ -16,30 +16,72 @@
 
 #include "user_defined_types.hpp"
 
+using namespace std;
+
+/**
+ * @brief 简单的向量结构体
+ */
 struct Vector {
-    double sz;
-    double *elem;
+    double* elem; /**< 指向元素的指针 */
+    int sz_; /**< 元素的数量 */
 };
 
-void vector_init(Vector &v, int s) {
-    v.elem = new double[s];
-    v.sz = s;
+/**
+ * @brief 初始化 Vector
+ * @param v 待初始化的 Vector 引用
+ * @param s 元素数量
+ * 
+ * 使用 new 从自由存储（堆）中分配内存。
+ */
+void
+vector_init(Vector& v, int s) { /* 非 const 引用，意味着可以修改 v */
+    v.elem = new double[s]; /* 分配数组空间，包含 s 个 double 类型的值 */
+    /* new 从自由存储（动态内存 / 堆）中分配内存，与对象作用域与创建所处作用域无关，会一直“存活”，直至 delete */
+    v.sz_ = s;
 }
 
-double read_and_sum(int s) {
+/**
+ * @brief 从标准输入读取元素并计算总和
+ * @param s 元素数量
+ * @return 元素的总和
+ */
+double
+read_and_sum(int s) {
     Vector v;
-    vector_init(v, s);
+    vector_init(v, s); /* 为 v 分配 s 个元素 */
+
     for (int i = 0; i != s; ++i)
-        v.elem[i] = i; // 仅作为示例
+        cin >> v.elem[i]; /* 读入元素 */
 
     double sum = 0;
     for (int i = 0; i != s; ++i)
-        sum += v.elem[i];
+        sum += v.elem[i]; /* 计算元素的和 */
     return sum;
 }
 
-void tutorial_structs() {
-    std::cout << "2.2 结构体 (struct)" << std::endl;
-    double s = read_and_sum(10);
-    std::cout << "Sum of 10 elements: " << s << std::endl;
+/**
+ * @brief 演示不同方式访问结构体成员
+ * @param v 按值传递
+ * @param rv 按引用传递
+ * @param pv 按指针传递
+ */
+void
+f(Vector v, Vector& rv, Vector* pv) {
+    [[maybe_unused]] int i1{ v.sz_ }; /* 通过名字访问 */
+    [[maybe_unused]] int i2{ rv.sz_ }; /* 通过引用访问 */
+    [[maybe_unused]] int i3{ pv->sz_ }; /* 通过指针访问 */
+}
+
+/**
+ * @ingroup user_defined_types_group
+ * @brief 2.2 结构体：演示 struct 的定义与初始化
+ * 
+ * 展示如何定义结构体、在堆上分配内存以及通过不同方式访问成员。
+ */
+void
+tutorial_structs() {
+    cout << "--- 2.2 Structs ---" << endl;
+    // read_and_sum(10);
+    Vector v;
+    f(v, v, &v);
 }

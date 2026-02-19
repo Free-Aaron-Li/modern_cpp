@@ -16,13 +16,18 @@
 
 #include "user_defined_types.hpp"
 
-int main() {
-    std::cout << "--- 第 2 章 用户自定义类型 ---" << std::endl;
+/**
+ * @brief 第 2 章：用户自定义类型示例程序入口
+ */
+int
+main() {
+    std::cout << "========== Modern CPP: Chapter 2 User-Defined Types ==========" << std::endl;
 
     tutorial_structs();
     tutorial_classes();
     tutorial_enums();
     tutorial_unions();
 
+    std::cout << "==============================================================" << std::endl;
     return 0;
 }
