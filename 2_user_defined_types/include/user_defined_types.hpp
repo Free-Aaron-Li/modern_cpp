@@ -26,13 +26,13 @@
 #include <iostream>
 
 /**
- * @defgroup user_defined_types_group 2_用户自定义类型
+ * @defgroup user_defined_types_group 2_ 用户自定义类型
  * @{
- * 
+ *
  * @brief 第 2 章：用户自定义类型 (User-Defined Types)
- * 
+ *
  * 本章主要介绍 C++ 中四种基本的用户自定义类型：结构体 (struct)、类 (class)、枚举 (enum) 和联合 (union)。
- * 
+ *
  * 核心学习点：
  * - 2.1 引言：理解内置类型与用户自定义类型的区别。
  * - 2.2 结构体 (struct)：最简单的数据组合方式，成员默认公开。
@@ -43,9 +43,9 @@
 
 /**
  * @brief 2.2 结构体：演示 struct 的定义与初始化
- * 
+ *
  * 介绍 C++ 中最简单的用户自定义类型，以及通过 new 在堆上分配内存。
- * 包含函数： `vector_init()`, `read_and_sum()`, `f()`
+ * 涵盖函数：`vector_init()`、`read_and_sum()` 和 `f()`
  */
 void
 tutorial_structs();

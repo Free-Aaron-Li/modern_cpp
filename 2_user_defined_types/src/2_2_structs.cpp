@@ -30,13 +30,13 @@ struct Vector {
  * @brief 初始化 Vector
  * @param v 待初始化的 Vector 引用
  * @param s 元素数量
- * 
+ *
  * 使用 new 从自由存储（堆）中分配内存。
  */
 void
-vector_init(Vector& v, int s) { /* 非 const 引用，意味着可以修改 v */
+vector_init(Vector& v, int s) { /* 非 const 引用参数，允许修改 v */
     v.elem = new double[s]; /* 分配数组空间，包含 s 个 double 类型的值 */
-    /* new 从自由存储（动态内存 / 堆）中分配内存，与对象作用域与创建所处作用域无关，会一直“存活”，直至 delete */
+    /* new 从自由存储（即动态内存或堆）中分配内存，与对象创建时所在的作用域无关，会持续存在，直至被 `delete` 释放 */
     v.sz_ = s;
 }
 
