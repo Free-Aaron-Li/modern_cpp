@@ -33,7 +33,7 @@ accept() {
 }
 
 /**
- * @brief 获取用户输入并返回布尔值 （使用 switch 语句）
+ * @brief 获取用户输入并返回布尔值（使用 switch 语句）
  * @return 如果用户输入 'y' 返回 true，否则返回 false
  */
 bool

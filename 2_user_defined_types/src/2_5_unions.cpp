@@ -18,18 +18,31 @@
 
 #include "user_defined_types.hpp"
 
+/**
+ * @brief 表示 Entry 中存储的数据类型
+ */
 enum Type { str, num };
 
+/**
+ * @brief 包含名字和可变类型值的实体结构
+ */
 struct Entry {
-    std::string name;
-    Type t;
+    std::string name; /**< 名字 */
+    Type        t;    /**< 当前存储的类型 */
 
+    /**
+     * @brief 联合体，用于在同一块内存存储不同类型的数据
+     */
     union {
-        const char* s;
-        int i;
-    } v;
+        const char* s; /**< 字符串值 */
+        int         i; /**< 整数值 */
+    } v;               /**< 实际存储的数据 */
 };
 
+/**
+ * @brief 打印 Entry 实体的内容
+ * @param e 待打印的 Entry 引用
+ */
 void
 print_entry(const Entry& e) {
     if (e.t == str)
@@ -51,14 +64,14 @@ tutorial_unions() {
     std::cout << "--- 2.5 Unions ---" << std::endl;
     Entry e1;
     e1.name = "Age";
-    e1.t = num;
-    e1.v.i = 25;
+    e1.t    = num;
+    e1.v.i  = 25;
     print_entry(e1);
 
     Entry e2;
     e2.name = "Name";
-    e2.t = str;
-    e2.v.s = "Aaron";
+    e2.t    = str;
+    e2.v.s  = "Aaron";
     print_entry(e2);
 
     std::cout << "Modern C++ alternative: std::variant" << std::endl;

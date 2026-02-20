@@ -19,8 +19,8 @@
 using namespace std;
 
 /**
- * @brief 计算平方 （可用于常量表达式）。
- * @param value 待求平方的数值 （按引用传入，但不会被修改）
+ * @brief 计算平方（可用于常量表达式）。
+ * @param value 待求平方的数值（按引用传入，但不会被修改）
  * @return `value * value`
  */
 constexpr double
@@ -39,7 +39,7 @@ square1(const double& value) {
 }
 
 /**
- * @brief 计算向量中所有元素之和 （运行期）。
+ * @brief 计算向量中所有元素之和（运行期）。
  * @param value 数值向量
  * @return 所有元素的累加和
  */
@@ -52,20 +52,20 @@ sum(const vector<double>& value) {
 
 /**
  * @ingroup basics_group
- * @brief 演示常量 （const 和 constexpr）
+ * @brief 演示常量（const 和 constexpr）
  *
  * 对应《C++ 之旅》1.6 节
  */
 void
 tutorial_constants() {
     cout << "--- 1.6 Constants ---" << endl;
-    constexpr int dmv{ 17 };         /* dmv 是一个命名常量 */
-    int var{ 17 };                   /* var 不是常量 */
-    const double sqv{ square(var) }; /* sqv 是一个命名常量，可能在运行时计算 */
+    constexpr int dmv{ 17 };          /* dmv 是一个命名常量 */
+    int           var{ 17 };          /* var 不是常量 */
+    const double  sqv{ square(var) }; /* sqv 是一个命名常量，可能在运行时计算 */
     cout << "dmv: " << dmv << ", var: " << var << ", sqv: " << sqv << endl;
 
     vector<double> v{ 1.2, 3.4, 5.6 };
-    const double s1{ sum(v) }; /* 可行：sum(v) 在运行时计算 */
+    const double   s1{ sum(v) }; /* 可行：sum(v) 在运行时计算 */
     // constexpr double s2{ sum(v) }; /* 错误：sum(v) 在编译时无法求值 */
     cout << "s1: " << s1 << endl;
 

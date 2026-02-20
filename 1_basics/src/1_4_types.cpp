@@ -42,10 +42,10 @@ size_of_type() {
  * @brief 演示不同进位制下的数字字面量表示
  *
  * 展示了 C++ 支持的字面量书写方式，包括：
- * - 十进制 （Decimal）
- * - 二进制 （Binary, 0b 开头）
- * - 十六进制 （Hex, 0x 开头）
- * - 八进制 （Octal, 0 开头）
+ * - 十进制（Decimal）
+ * - 二进制（Binary，0b 开头）
+ * - 十六进制（Hex，0x 开头）
+ * - 八进制（Octal，0 开头）
  */
 void
 print_num() {
@@ -55,7 +55,7 @@ print_num() {
     cout << "f2 (float, (314e-2)): " << f2 << endl;
     const double i1{ 10 };  // 十进制
     const double i2{ 0b1010'1010 };
-    // 二进制 （170），使用单引号作为数字分隔符 （C++ 14）
+    // 二进制（170），使用单引号作为数字分隔符（C++ 14）
     const double i3{ 0xBAD1'2CE3 };  // 十六进制
     const double i4{ 0334 };         // 八进制
     cout << "i1 (decimal 10): " << i1 << endl;
@@ -67,15 +67,15 @@ print_num() {
 /**
  * @brief 演示统一初始化与窄化转换
  *
- * 展示了 C++ 11 引入的统一初始化 （Uniform
- * Initialization） 语法，以及它如何通过禁止窄化转换来提高代码安全性。
+ * 展示了 C++ 11 引入的统一初始化（Uniform Initialization）语法，以及
+ * 它如何通过禁止窄化转换来提高代码安全性。
  */
 void
 initialization_list() {
-    double d1{ 2.3 };
-    double d2 = { 2.3 }; /* 使用 {...} 时可以省略 = 符号 */
+    double          d1{ 2.3 };
+    double          d2 = { 2.3 }; /* 使用 {...} 时可以省略 = 符号 */
     complex<double> c1{ 2.3, 4.5 };
-    vector<int> v{ 1, 2, 3 };
+    vector<int>     v{ 1, 2, 3 };
 
     int i1 = 7.8; /* i1 会窄化类型转换，变为 7 */
     /* {} 方式不接受隐式类型转换 */

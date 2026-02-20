@@ -18,33 +18,49 @@
 
 using namespace std;
 
-/* 匿名 namespace 里名字具备内部链接，等价于“只在当前.cpp（当前翻译单元）中
- * 可见/可链接。
- * 不将 tutorial_classes 包含在内原因在于该函数是对外提供的入口函数，需要外部
- * 链接。这是一个常见的组织方式：内部实现隐藏 + 外部接口暴露。
+/* 匿名 namespace 里的名字具备内部链接，
+ * 等价于“只在当前 .cpp（当前翻译单元）中可见/可链接”。
+ * 不将 tutorial_classes 包含在内的原因在于该函数是对外提供的入口，
+ * 需要外部链接。这是常见的组织方式：内部实现隐藏 + 外部接口暴露。
  */
 namespace {
 
+    /**
+     * @brief 简单的向量类
+     */
     class Vector {
     public:
-        /* 构造函数在初始化类对象时一定会被调用，因此定义一个构造函数
-         * 可以消除类变量未初始化造成的问题。
+        /**
+         * @brief 构造函数
+         * @param s 元素数量
+         *
+         * 在初始化类对象时一定会被调用，因此定义一个构造函数可以消除类变量未初
+         * 始化造成的问题。
          */
-        Vector(int s) : elem{ new double[s] }, sz{ s } {} /* 构造一个 Vector */
+        Vector(int s) : elem{ new double[s] }, sz{ s } {}
 
-        double& /* 返回值为引用，从而可读可写 */
+        /**
+         * @brief 通过下标访问元素
+         * @param i 索引
+         * @return 元素的引用（从而可读可写）
+         */
+        double&
         operator[](int i) {
             return elem[i];
-        } /* 通过下标访问元素 */
+        }
 
+        /**
+         * @brief 获取向量大小
+         * @return 向量中的元素数量
+         */
         int
         size() {
             return sz;
         }
 
     private:
-        double* elem;
-        int sz;
+        double* elem; /**< 指向元素的指针 */
+        int     sz;   /**< 元素的数量 */
     };
 
     /**
