@@ -33,7 +33,7 @@ accept() {
 }
 
 /**
- * @brief 获取用户输入并返回布尔值（使用 switch 语句）
+ * @brief 获取用户输入并返回布尔值 （使用 switch 语句）
  * @return 如果用户输入 'y' 返回 true，否则返回 false
  */
 bool
@@ -45,8 +45,7 @@ accept2() {
     switch (answer) {
         case 'y': return true;
         case 'n': return false;
-        default: cout << "I'll take that for a no.\n";
-            return false;
+        default: cout << "I'll take that for a no.\n"; return false;
     }
 }
 
@@ -54,21 +53,21 @@ accept2() {
  * @brief 简单的点坐标结构体
  */
 struct Point {
-    int x_; ///< x 轴坐标
-    int y_; ///< y 轴坐标
+    int x_;  ///< x 轴坐标
+    int y_;  ///< y 轴坐标
 };
 
 /**
  * @brief 执行连续动作的演示函数
- * 
- * 演示了循环（while）、字符串读取（cin）以及在循环体内更新坐标点。
+ *
+ * 演示了循环 (while)、字符串读取 (cin) 以及在循环体内更新坐标点。
  * 支持 'u' (up), 'n' (north), 'r' (right), 'e' (east) 等输入字符。
  */
 void
 action() {
     while (true) {
-        cout <<
-                "enter action (u:up, n:up, r:right, e:right, other:freeze, q:quit):\n";
+        cout << "enter action (u:up, n:up, r:right, e:right, other:freeze, "
+                "q:quit):\n";
         /* 请求动作 */
         string act;
         cin >> act; /* 将字符读到字符串 */
@@ -77,11 +76,9 @@ action() {
         for (char ch: act) {
             switch (ch) {
                 case 'u':
-                case 'n': ++delta.y_;
-                    break;
+                case 'n': ++delta.y_; break;
                 case 'r':
-                case 'e': ++delta.x_;
-                    break;
+                case 'e': ++delta.x_; break;
                 default: cout << "I freeze!\n";
             }
         }
@@ -92,7 +89,7 @@ action() {
 /**
  * @ingroup basics_group
  * @brief 演示条件判断与循环
- * 
+ *
  * 对应《C++ 之旅》1.8 节
  */
 void

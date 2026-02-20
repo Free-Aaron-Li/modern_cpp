@@ -43,8 +43,8 @@ tutorial_program();
 /**
  * @brief 1.3 函数：演示函数的定义与调用
  *
- * 重点展示 C++
- * 的函数重载（Overloading）机制，即同名函数根据参数列表不同而区分。
+ * 重点展示 C++ 的函数重载 （Overloading） 机制，即同名函数根据参数列表不同而
+ * 区分。
  * 包含函数：`print(int, double)`, `print(double, int)`
  */
 void
@@ -53,9 +53,8 @@ tutorial_functions();
 /**
  * @brief 1.4 类型、变量与算术：演示内置类型与算术运算
  *
- * 展示了 C++
- * 中各内置类型的大小（`sizeof`），以及二进制、十六进制、八进制等多种字面量的表
- * 示方法。
+ * 展示了 C++ 中各内置类型的大小 （sizeof），以及二进制、十六进制、八进制等多种
+ * 字面量的表示方法。
  * 包含函数：`size_of_type()`, `print_num()`
  */
 void
@@ -64,9 +63,9 @@ tutorial_types();
 /**
  * @brief 1.6 常量：演示 `const`、`constexpr` 与 `consteval`
  *
- * 区分不同类型的常量修饰符：`const` 承诺不改变值，`constexpr`
- * 允许编译期计算，`consteval` 强制编译期计算。 包含函数：`square()`,
- * `square1()`, `sum()`
+ * 区分不同类型的常量修饰符：`const` 承诺不改变值，`constexpr` 允许编译期计算，
+ * `consteval` 强制编译期计算。
+ * 包含函数：`square()`, `square1()`, `sum()`
  */
 void
 tutorial_constants();
@@ -74,7 +73,7 @@ tutorial_constants();
 /**
  * @brief 1.7 指针、数组与引用：演示基础内存操作
  *
- * 展示范围 `for` 语句遍历数组、指针的空值检查（`nullptr`）以及引用的别名特性。
+ * 展示范围 `for` 语句遍历数组、指针的空值检查 （nullptr） 以及引用的别名特性。
  * 包含函数：`print()`, `increment()`
  */
 void
@@ -83,7 +82,8 @@ tutorial_pointers();
 /**
  * @brief 1.8 检验：演示条件判断与循环
  *
- * 展示交互式输入处理、`if-else` 分支、`switch-case` 结构及各类循环。
+ * 展示交互式输入处理、`if-else` 分支、`switch-case` 结构及各类循环 （如
+ * if-else、switch-case 等）。
  * 包含函数：`accept()`, `accept2()`, `action()`
  */
 void

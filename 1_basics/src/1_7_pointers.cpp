@@ -19,7 +19,7 @@
 using namespace std;
 
 /**
- * @brief 演示数组遍历（范围 for）
+ * @brief 演示数组遍历 （范围 for）
  */
 void
 print() {
@@ -47,7 +47,7 @@ increment() {
 /**
  * @ingroup basics_group
  * @brief 演示指针、数组与引用
- * 
+ *
  * 对应《C++ 之旅》1.7 节
  */
 void
@@ -57,5 +57,6 @@ tutorial_pointers() {
     increment();
     [[maybe_unused]] double* pd{ nullptr };
     [[maybe_unused]] vector<int>* pl{ nullptr }; /* 指向空指针 */
-    // int x = nullptr; /* 错误：不能在初始化时将‘std::nullptr_t’转换为‘int’ */
+    // int x = nullptr;
+    /* 错误：不能在初始化时将‘std::nullptr_t’转换为‘int’ */
 }

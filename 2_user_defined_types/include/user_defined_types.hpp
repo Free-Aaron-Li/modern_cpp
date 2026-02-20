@@ -29,17 +29,17 @@
  * @defgroup user_defined_types_group 2_ 用户自定义类型
  * @{
  *
- * @brief 第 2 章：用户自定义类型 (User-Defined Types)
+ * @brief 第 2 章：用户自定义类型 （User-Defined Types）
  *
- * 本章主要介绍 C++ 中四种基本的用户自定义类型：结构体 (struct)、类
- * (class)、枚举 (enum) 和联合 (union)。
+ * 本章主要介绍 C++ 中四种基本的用户自定义类型：结构体 （struct）、类
+ * （class）、枚举 （enum） 和联合 （union）。
  *
  * 核心学习点：
  * - 2.1 引言：理解内置类型与用户自定义类型的区别。
- * - 2.2 结构体 (struct)：最简单的数据组合方式，成员默认公开。
- * - 2.3 类 (class)：支持封装、构造函数及成员访问控制。
- * - 2.4 枚举 (enum)：定义命名的常量集合，推荐使用 `enum class`。
- * - 2.5 联合 (union)：在同一内存位置存储不同类型，需谨慎管理。
+ * - 2.2 结构体 （struct）：最简单的数据组合方式，成员默认公开。
+ * - 2.3 类 （class）：支持封装、构造函数及成员访问控制。
+ * - 2.4 枚举 （enum）：定义命名的常量集合，推荐使用 `enum class`。
+ * - 2.5 联合 （union）：在同一内存位置存储不同类型，需谨慎管理。
  */
 
 /**
@@ -55,7 +55,7 @@ tutorial_structs();
  * @brief 2.3 类：演示 class 的封装与接口设计
  *
  * 介绍通过 public 和 private 关键字实现的访问控制，以及成员函数的定义。
- * 涵盖类：`Vector`
+ * 涵盖类：`Vector`；涵盖函数：`read_and_sum()`
  */
 void
 tutorial_classes();
@@ -63,7 +63,7 @@ tutorial_classes();
 /**
  * @brief 2.4 枚举：演示 enum class 与普通 enum
  *
- * 比较强类型枚举（scoped enums）与传统枚举的区别。
+ * 比较强类型枚举 （scoped enums） 与传统枚举的区别。
  * 涵盖函数：`operator++(Traffic_light&)`
  */
 void

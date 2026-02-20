@@ -3,7 +3,7 @@ BasedOnStyle: Google
 AccessModifierOffset: -4
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-AlignOperands: true
+AlignOperands: Align
 AlignTrailingComments: true
 ReflowComments: Always
 PenaltyExcessCharacter: 1000000
@@ -33,11 +33,12 @@ BraceWrapping:
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 BreakBeforeBraces: Custom
+BreakBeforeBinaryOperators: None
 BreakConstructorInitializers: AfterColon
 BreakConstructorInitializersBeforeComma: false
 ColumnLimit: 80
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ContinuationIndentWidth: 8
+ContinuationIndentWidth: 12
 Cpp11BracedListStyle: false
 IncludeCategories:
   - Regex: '^<.*'

@@ -42,10 +42,10 @@ size_of_type() {
  * @brief 演示不同进位制下的数字字面量表示
  *
  * 展示了 C++ 支持的字面量书写方式，包括：
- * - 十进制 (Decimal)
- * - 二进制 (Binary, 0b 开头)
- * - 十六进制 (Hex, 0x 开头)
- * - 八进制 (Octal, 0 开头)
+ * - 十进制 （Decimal）
+ * - 二进制 （Binary, 0b 开头）
+ * - 十六进制 （Hex, 0x 开头）
+ * - 八进制 （Octal, 0 开头）
  */
 void
 print_num() {
@@ -54,9 +54,8 @@ print_num() {
     cout << "f1 (float, {3.14}): " << f1 << endl;
     cout << "f2 (float, (314e-2)): " << f2 << endl;
     const double i1{ 10 };  // 十进制
-    const double i2{
-        0b1010'1010
-    };  // 二进制 (170)，使用单引号作为数字分隔符 (C++14)
+    const double i2{ 0b1010'1010 };
+    // 二进制 （170），使用单引号作为数字分隔符 （C++ 14）
     const double i3{ 0xBAD1'2CE3 };  // 十六进制
     const double i4{ 0334 };         // 八进制
     cout << "i1 (decimal 10): " << i1 << endl;
@@ -68,8 +67,8 @@ print_num() {
 /**
  * @brief 演示统一初始化与窄化转换
  *
- * 展示了 C++11 引入的统一初始化（Uniform
- * Initialization）语法，以及它如何通过禁止窄化转换来提高代码安全性。
+ * 展示了 C++ 11 引入的统一初始化 （Uniform
+ * Initialization） 语法，以及它如何通过禁止窄化转换来提高代码安全性。
  */
 void
 initialization_list() {

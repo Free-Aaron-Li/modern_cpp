@@ -47,7 +47,7 @@ print(double a, int b) {
  * @ingroup basics_group
  * @brief 1.3 函数：重载与声明
  *
- * 演示 C++ 的函数重载（Overloading）机制。
+ * 演示 C++ 的函数重载 (Overloading) 机制。
  * 重载机制允许程序员对不同的参数类型集合使用相同的名字，从而提高代码的可读性。
  *
  * 对应《C++ 之旅》1.3 节。
@@ -57,8 +57,8 @@ tutorial_functions() {
     cout << "--- 1.3 Functions ---" << endl;
 
     // 自动匹配最合适的重载版本
-    print(1, 2.0); // 调用 print(int, double)
-    print(1.0, 2); // 调用 print(double, int)
+    print(1, 2.0);  // 调用 print(int, double)
+    print(1.0, 2);  // 调用 print(double, int)
 
     /*
      * ⚠️ 注意：调用 `print(1, 2)`

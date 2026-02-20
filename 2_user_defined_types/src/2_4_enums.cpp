@@ -33,9 +33,9 @@ operator++(Traffic_light& t) {
 /**
  * @ingroup user_defined_types_group
  * @brief 2.4 枚举：演示 enum class 与普通 enum
- * 
+ *
  * 比较强类型枚举（scoped enums）与传统枚举的区别。
- * 
+ *
  * 对应《C++ 之旅》2.4 节。
  */
 void

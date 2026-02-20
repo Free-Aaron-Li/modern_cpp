@@ -19,8 +19,8 @@
 using namespace std;
 
 /**
- * @brief 计算平方（可用于常量表达式）。
- * @param value 待求平方的数值（按引用传入，但不会被修改）
+ * @brief 计算平方 （可用于常量表达式）。
+ * @param value 待求平方的数值 （按引用传入，但不会被修改）
  * @return `value * value`
  */
 constexpr double
@@ -39,7 +39,7 @@ square1(const double& value) {
 }
 
 /**
- * @brief 计算向量中所有元素之和（运行期）。
+ * @brief 计算向量中所有元素之和 （运行期）。
  * @param value 数值向量
  * @return 所有元素的累加和
  */
@@ -52,7 +52,7 @@ sum(const vector<double>& value) {
 
 /**
  * @ingroup basics_group
- * @brief 演示常量 (const 和 constexpr)
+ * @brief 演示常量 （const 和 constexpr）
  *
  * 对应《C++ 之旅》1.6 节
  */
@@ -77,7 +77,7 @@ tutorial_constants() {
     cout << "max1: " << max1 << ", max3: " << max3 << endl;
 
     const double max4{ 1.4 * square1(17) }; /* 可行：全参数为字面值 */
-    // const double max5{ 1.4 * square1(var) }; /* 错误：consteval 不允许非常量
-    // */
+    // const double max5{ 1.4 * square1(var) };
+    /* 错误：consteval 不允许非常量 */
     cout << "max4: " << max4 << endl;
 }

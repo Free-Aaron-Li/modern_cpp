@@ -14,8 +14,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "user_defined_types.hpp"
 #include <variant>
+
+#include "user_defined_types.hpp"
 
 enum Type { str, num };
 
@@ -31,16 +32,18 @@ struct Entry {
 
 void
 print_entry(const Entry& e) {
-    if (e.t == str) std::cout << e.name << ": " << e.v.s << std::endl;
-    else std::cout << e.name << ": " << e.v.i << std::endl;
+    if (e.t == str)
+        std::cout << e.name << ": " << e.v.s << std::endl;
+    else
+        std::cout << e.name << ": " << e.v.i << std::endl;
 }
 
 /**
  * @ingroup user_defined_types_group
  * @brief 2.5 联合：演示 union 的内存布局与应用
- * 
+ *
  * 展示如何在同一块内存区域存储不同类型的变量，以及它的风险与现代替代方案。
- * 
+ *
  * 对应《C++ 之旅》2.5 节。
  */
 void
@@ -63,6 +66,6 @@ tutorial_unions() {
     v = 12;
     std::cout << "std::variant (int): " << std::get<int>(v) << std::endl;
     v = "Hello";
-    std::cout << "std::variant (string): " << std::get<std::string>(v) <<
-            std::endl;
+    std::cout << "std::variant (string): " << std::get<std::string>(v)
+              << std::endl;
 }
