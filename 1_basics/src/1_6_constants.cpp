@@ -19,45 +19,51 @@
 using namespace std;
 
 /**
- * @brief 计算平方（可用于常量表达式）。
- * @param value 待求平方的数值（按引用传入，但不会被修改）
- * @return `value * value`
+ * @brief 1.6 常量相关的内部实现
  */
-constexpr double
-square(const double& value) { /* 函数不会修改传入参数值 */
-    return value * value;
-}
+namespace ch1_constants_impl {
+    /**
+     * @brief 计算平方（可用于常量表达式）。
+     * @param value 待求平方的数值（按引用传入，但不会被修改）
+     * @return `value * value`
+     */
+    constexpr double
+    square(const double& value) { /* 函数不会修改传入参数值 */
+        return value * value;
+    }
 
-/**
- * @brief 在编译期强制求值的平方函数。
- * @param value 常量表达式参数
- * @return `value * value`
- */
-consteval double
-square1(const double& value) {
-    return value * value;
-}
+    /**
+     * @brief 在编译期强制求值的平方函数。
+     * @param value 常量表达式参数
+     * @return `value * value`
+     */
+    consteval double
+    square1(const double& value) {
+        return value * value;
+    }
 
-/**
- * @brief 计算向量中所有元素之和（运行期）。
- * @param value 数值向量
- * @return 所有元素的累加和
- */
-double
-sum(const vector<double>& value) {
-    double sum = 0;
-    for (const double& v: value) { sum += v; }
-    return sum;
-}
+    /**
+     * @brief 计算向量中所有元素之和（运行期）。
+     * @param value 数值向量
+     * @return 所有元素的累加和
+     */
+    double
+    sum(const vector<double>& value) {
+        double sum = 0;
+        for (const double& v: value) { sum += v; }
+        return sum;
+    }
+}  // namespace ch1_constants_impl
 
 /**
  * @ingroup basics_group
  * @brief 演示常量（const 和 constexpr）
  *
- * 对应《C++ 之旅》1.6 节
+ * 对应《C++ 之旅》1.6 节。
  */
 void
 tutorial_constants() {
+    using namespace ch1_constants_impl;
     cout << "--- 1.6 Constants ---" << endl;
     constexpr int dmv{ 17 };          /* dmv 是一个命名常量 */
     int           var{ 17 };          /* var 不是常量 */

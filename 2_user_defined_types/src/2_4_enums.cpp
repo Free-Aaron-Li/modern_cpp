@@ -18,10 +18,14 @@
 
 using namespace std;
 
-namespace {
+/**
+ * @brief 2.4 枚举相关的内部实现
+ */
+namespace ch2_enums_impl {
     /**
      * @brief 颜色枚举类
-     * @details 枚举值作用域在`enum class`中，因此不能直接使用`enum`类型。同时
+     * @details 枚举值作用域在 `enum class` 中，因此不能直接使用 `enum`
+     * 类型。同时
      * 避免重复使用造成的混淆。同时具备独立作用域，使得成员名无法泄露至
      * 外部作用域，同时避免隐式混用枚举与整数。
      */
@@ -51,7 +55,7 @@ namespace {
         }
         return t;
     }
-}  // namespace
+}  // namespace ch2_enums_impl
 
 /**
  * @ingroup user_defined_types_group
@@ -63,10 +67,11 @@ namespace {
  */
 void
 tutorial_enums() {
+    using namespace ch2_enums_impl;
     std::cout << "--- 2.4 Enums ---" << std::endl;
-    Color         col{ Color::red };
-    Traffic_light tl{ Traffic_light::green };
-    // Color col2{ red }; /* 错误：无法区分是哪个red。 */
-    // Color col3{ Traffic_light::red }; /* 错误：不属于Color类型 */
-    // int i{ Color::red }; /* 错误：Color::red不是int类型 */
+    Color         col{ Color::red };          /* 强类型枚举需要指定作用域 */
+    Traffic_light tl{ Traffic_light::green }; /* 不同枚举类的成员互不干扰 */
+    // Color col2{ red }; /* 错误：无法区分是哪个 red。 */
+    // Color col3{ Traffic_light::red }; /* 错误：不属于 Color 类型 */
+    // int i{ Color::red }; /* 错误：Color::red 不是 int 类型 */
 }

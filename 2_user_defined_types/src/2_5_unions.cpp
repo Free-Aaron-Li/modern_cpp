@@ -14,42 +14,80 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include <variant>
-
 #include "user_defined_types.hpp"
 
-/**
- * @brief 表示 Entry 中存储的数据类型
- */
-enum Type { str, num };
+using namespace std;
 
 /**
- * @brief 包含名字和可变类型值的实体结构
+ * @brief 2.5 联合相关的内部实现
  */
-struct Entry {
-    std::string name; /**< 名字 */
-    Type        t;    /**< 当前存储的类型 */
+namespace ch2_unions_impl {
+    /**
+     * @brief 表示 Entry 中存储的数据类型
+     */
+    enum class Type { ptr, num }; /* Type可以是ptr或num */
 
     /**
-     * @brief 联合体，用于在同一块内存存储不同类型的数据
+     * @brief 可变类型值的联合体
+     * @details 联合体（union）允许在同一块内存中存储不同类型的数据，
+     * 但同一时刻只能使用其中一个成员。这里定义了指针和整数两种类型，
+     * 通过配合 Type 枚举和 Entry 结构体来跟踪当前存储的实际类型。
+     *
+     * @note 联合体的大小等于其最大成员的大小。使用时需要程序员手动
+     * 维护类型信息，否则容易引发未定义行为。现代 C++ 推荐使用
+     * std::variant 作为类型安全的替代方案。
      */
-    union {
-        const char* s; /**< 字符串值 */
-        int         i; /**< 整数值 */
-    } v;               /**< 实际存储的数据 */
-};
+    union Value {
+        int* p; /**< 指针类型成员：指向 int 的指针 */
+        int  i; /**< 整数类型成员：int 值 */
+    };
 
-/**
- * @brief 打印 Entry 实体的内容
- * @param e 待打印的 Entry 引用
- */
-void
-print_entry(const Entry& e) {
-    if (e.t == str)
-        std::cout << e.name << ": " << e.v.s << std::endl;
-    else
-        std::cout << e.name << ": " << e.v.i << std::endl;
-}
+    /**
+     * @brief 包含名字和可变类型值的实体结构
+     */
+    struct Entry {
+        std::string        name; /**< 名字 */
+        Type               t;    /**< 当前存储的类型 */
+        Value              v;    /**< 存储的值 */
+        variant<int*, int> v1;   /**< 存储的值（替代方案）*/
+    };
+
+    /**
+     * @brief 打印 Entry 实体的内容（使用 union 版本）
+     * @param e 待打印的 Entry 引用
+     * @details 根据 Type 枚举值判断当前使用的联合体成员，
+     * 然后输出相应的值。这种方式需要手动维护类型信息。
+     */
+    void
+    print_entry(const Entry& e) {
+        /* 根据类型标记判断当前存储的是指针还是整数 */
+        if (e.t == Type::ptr)
+            std::cout << e.name << ": " << e.v.p << std::endl;
+        else
+            std::cout << e.name << ": " << e.v.i << std::endl;
+    }
+
+    /**
+     * @brief 打印 Entry 实体的内容（使用 std::variant 版本）
+     * @param e 待打印的 Entry 引用
+     * @details 使用 std::variant 的类型安全机制，通过 holds_alternative
+     * 检查当前存储的类型，并使用 get 获取相应的值。这是现代 C++ 推荐
+     * 的做法，无需手动维护类型标记。
+     */
+    void
+    print_entry1(const Entry& e) {
+        /* 使用 std::variant 的类型安全检查 */
+        if (holds_alternative<int>(e.v1)) {
+            /* 当前存储的是 int 类型 */
+            cout << get<int>(e.v1) << endl;
+        } else {
+            /* 当前存储的是 int* 类型 */
+            cout << get<int*>(e.v1) << endl;
+        }
+    }
+
+
+}  // namespace ch2_unions_impl
 
 /**
  * @ingroup user_defined_types_group
@@ -61,24 +99,6 @@ print_entry(const Entry& e) {
  */
 void
 tutorial_unions() {
+    using namespace ch2_unions_impl;
     std::cout << "--- 2.5 Unions ---" << std::endl;
-    Entry e1;
-    e1.name = "Age";
-    e1.t    = num;
-    e1.v.i  = 25;
-    print_entry(e1);
-
-    Entry e2;
-    e2.name = "Name";
-    e2.t    = str;
-    e2.v.s  = "Aaron";
-    print_entry(e2);
-
-    std::cout << "Modern C++ alternative: std::variant" << std::endl;
-    std::variant<int, std::string> v;
-    v = 12;
-    std::cout << "std::variant (int): " << std::get<int>(v) << std::endl;
-    v = "Hello";
-    std::cout << "std::variant (string): " << std::get<std::string>(v)
-              << std::endl;
 }

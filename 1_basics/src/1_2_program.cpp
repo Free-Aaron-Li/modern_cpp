@@ -18,29 +18,34 @@
 using namespace std; /* 使 std 中的名称在不加 std:: 前缀时可见 */
 
 /**
- * @brief 计算双精度浮点数的平方
- * @param x 需要计算平方的数值
- * @return x 的平方值
- *
- * 这是一个简单的数学辅助函数，用于演示函数的定义和返回值。
- * 位置：1_basics/src/1_2_program.cpp
+ * @brief 1.2 程序相关的内部实现
  */
-double
-square(double x) {
-    return x * x;
-}
+namespace ch1_program_impl {
+    /**
+     * @brief 计算双精度浮点数的平方
+     * @param x 需要计算平方的数值
+     * @return x 的平方值
+     *
+     * 这是一个简单的数学辅助函数，用于演示函数的定义和返回值。
+     * 位置：1_basics/src/1_2_program.cpp
+     */
+    double
+    square(double x) {
+        return x * x;
+    }
 
-/**
- * @brief 在标准输出中打印一个数值及其平方结果
- * @param x 需要打印的数值
- *
- * 该函数内部调用了 square() 函数，演示了函数间的相互调用以及 std::cout 的格式化
- * 输出。
- */
-void
-print_square(double x) {
-    cout << "the square of " << x << " is " << square(x) << endl;
-}
+    /**
+     * @brief 在标准输出中打印一个数值及其平方结果
+     * @param x 需要打印的数值
+     *
+     * 该函数内部调用了 square() 函数，演示了函数间的相互调用以及 std::cout
+     * 的格式化输出。
+     */
+    void
+    print_square(double x) {
+        cout << "the square of " << x << " is " << square(x) << endl;
+    }
+}  // namespace ch1_program_impl
 
 /**
  * @ingroup basics_group
@@ -51,6 +56,7 @@ print_square(double x) {
  */
 void
 tutorial_program() {
+    using namespace ch1_program_impl;
     cout << "--- 1.2 Program ---" << endl;
     std::cout << "Hello World!" << std::endl;
     /* std:: 前缀明确指定了 cout 的命名空间。 */

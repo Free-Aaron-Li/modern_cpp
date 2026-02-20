@@ -18,12 +18,10 @@
 
 using namespace std;
 
-/* 匿名 namespace 里的名字具备内部链接，
- * 等价于“只在当前 .cpp（当前翻译单元）中可见/可链接”。
- * 不将 tutorial_classes 包含在内的原因在于该函数是对外提供的入口，
- * 需要外部链接。这是常见的组织方式：内部实现隐藏 + 外部接口暴露。
+/**
+ * @brief 2.3 类相关的内部实现
  */
-namespace {
+namespace ch2_classes_impl {
 
     /**
      * @brief 简单的向量类
@@ -78,7 +76,7 @@ namespace {
         return sum;
     }
 
-}  // namespace
+}  // namespace ch2_classes_impl
 
 /**
  * @ingroup user_defined_types_group
@@ -91,6 +89,7 @@ namespace {
  */
 void
 tutorial_classes() {
+    using namespace ch2_classes_impl;
     std::cout << "--- 2.3 Classes ---" << std::endl;
     read_and_sum(6);
 }

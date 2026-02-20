@@ -18,7 +18,10 @@
 
 using namespace std;
 
-namespace {
+/**
+ * @brief 2.2 结构体相关的内部实现
+ */
+namespace ch2_structs_impl {
     /**
      * @brief 简单的向量结构体
      */
@@ -69,15 +72,13 @@ namespace {
      */
     void
     f(Vector v, Vector& rv, Vector* pv) {
-        /* [[maybe_unused]] C++17
-         * 属性，告诉编译器即使这个变量/参数/函数/返回值未被使用，
-         * 也不要报“unused...”之类警告
-         */
+        /* [[maybe_unused]] C++17 属性，告诉编译器即使这个变量/参数/函数/返回
+         * 值未被使用，也不要报“unused...”之类警告 */
         [[maybe_unused]] int i1{ v.sz_ };   /* 通过名字访问 */
         [[maybe_unused]] int i2{ rv.sz_ };  /* 通过引用访问 */
         [[maybe_unused]] int i3{ pv->sz_ }; /* 通过指针访问 */
     }
-}  // namespace
+}  // namespace ch2_structs_impl
 
 /**
  * @ingroup user_defined_types_group
@@ -89,6 +90,7 @@ namespace {
  */
 void
 tutorial_structs() {
+    using namespace ch2_structs_impl;
     cout << "--- 2.2 Structs ---" << endl;
     read_and_sum(10);
     Vector v;

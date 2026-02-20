@@ -19,30 +19,35 @@
 using namespace std;
 
 /**
- * @brief 演示数组遍历（范围 for）
+ * @brief 1.7 指针相关的内部实现
  */
-void
-print() {
-    int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    for (auto x: v) { /* 通过 x 遍历 v 中的每个元素 */
-        cout << x << "\n";
+namespace ch1_pointers_impl {
+    /**
+     * @brief 演示数组遍历（范围 for）
+     */
+    void
+    print() {
+        int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        for (auto x: v) { /* 通过 x 遍历 v 中的每个元素 */
+            cout << x << "\n";
+        }
+
+        for (auto x: { 10, 21, 32, 43, 54, 65 }) { cout << x << "\n"; }
     }
 
-    for (auto x: { 10, 21, 32, 43, 54, 65 }) { cout << x << "\n"; }
-}
-
-/**
- * @brief 演示通过引用遍历数组并累加
- */
-void
-increment() {
-    int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    int res{ 0 };
-    for (auto& x: v) { /* 通过引用 x 遍历 v 中的每个元素，节约资源 */
-        res += x;
+    /**
+     * @brief 演示通过引用遍历数组并累加
+     */
+    void
+    increment() {
+        int v[]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        int res{ 0 };
+        for (auto& x: v) { /* 通过引用 x 遍历 v 中的每个元素，节约资源 */
+            res += x;
+        }
+        cout << "total of v is: " << res << "\n";
     }
-    cout << "total of v is: " << res << "\n";
-}
+}  // namespace ch1_pointers_impl
 
 /**
  * @ingroup basics_group
@@ -52,6 +57,7 @@ increment() {
  */
 void
 tutorial_pointers() {
+    using namespace ch1_pointers_impl;
     cout << "--- 1.7 Pointers, Arrays, and References ---" << endl;
     print();
     increment();
