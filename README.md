@@ -21,7 +21,13 @@
 - **结构体与类**：展示如何通过 `struct` 和 `class` 构建自定义类型。
 - **枚举与联合**：探讨强类型枚举和联合体及其现代替代方案。
 
-### 3. 智能指针与 RAII （Smart Pointers & RAII）
+### 3. 模块化 （Modularity）
+
+- **分离编译**：理解头文件与源文件的角色。
+- **命名空间**：避免命名冲突并组织代码。
+- **错误处理**：异常（Exceptions）、不变性（Invariants）和静态断言。
+
+### 4. 智能指针与 RAII （Smart Pointers & RAII）
 
 - **RAII 手法**：展示如何通过对象的生命周期自动管理资源。
 - **内存管理**：涵盖了 `std::shared_ptr` 的基本用法，后续将深入探讨 `std::unique_ptr` 和 `std::weak_ptr`。
@@ -34,6 +40,7 @@
 
 - **[第 1 章 基础](docs/1_基础.md)**: C++ 基础概念、核心语言特性与标准库。
 - **[第 2 章 用户自定义类型](docs/2_用户自定义类型.md)**: 结构体、类、枚举与联合。
+- **[第 3 章 模块化](docs/3_模块化.md)**: 分离编译、命名空间与错误处理。
 
 > **提示**：本项目仍处于开发阶段，后续还会添加许多其他章节（如模板元编程、并发编程、STL 深入解析等）。
 
@@ -54,6 +61,16 @@
 		- `user_defined_types.hpp`: 用户自定义类型主头文件。
 	- `src/`: 源代码目录。
 		- `main.cpp`: 演示程序入口。
+- `3_modularity/`: 包含模块化相关的示例。
+	- `include/`: 头文件目录。
+		- `modularity.hpp`: 模块化主头文件。
+		- `Vector.hpp`: 演示分离编译的类声明。
+	- `src/`: 源代码目录。
+		- `main.cpp`: 演示程序入口。
+		- `Vector.cpp`: 类实现。
+		- `3_2_separate_compilation.cpp`: 分离编译示例。
+		- `3_3_namespaces.cpp`: 命名空间示例。
+		- `3_4_error_handling.cpp`: 错误处理示例。
 - `.clang-format`: C++ 代码格式化配置文件。
 - `.gitignore`: Git 忽略文件。
 - `CMakeLists.txt`: 整体项目 `CMake` 配置文件。
