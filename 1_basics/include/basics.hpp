@@ -43,7 +43,7 @@ tutorial_program();
 /**
  * @brief 1.3 函数：演示函数的定义与调用
  *
- * 重点展示 C++ 的函数重载 （Overloading） 机制，即同名函数根据参数列表不同
+ * 重点展示 C++ 的函数重载（Overloading）机制，即同名函数根据参数列表不同
  * 而区分。
  * 包含函数：`ch1_functions_impl::print(int, double)`、
  * `ch1_functions_impl::print(double, int)`
@@ -54,7 +54,7 @@ tutorial_functions();
 /**
  * @brief 1.4 类型、变量与算术：演示内置类型与算术运算
  *
- * 展示了 C++ 中各内置类型的大小 （sizeof），以及二进制、十六进制、八进制等
+ * 展示了 C++ 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等
  * 多种字面量的表示方法。
  * 包含函数：`ch1_types_impl::size_of_type()`、`ch1_types_impl::print_num()`
  */
@@ -75,7 +75,7 @@ tutorial_constants();
 /**
  * @brief 1.7 指针、数组与引用：演示基础内存操作
  *
- * 展示范围 `for` 语句遍历数组、指针的空值检查 （nullptr） 以及引用的别名特性。
+ * 展示范围 `for` 语句遍历数组、指针的空值检查（nullptr）以及引用的别名特性。
  * 包含函数：`ch1_pointers_impl::print()`、`ch1_pointers_impl::increment()`
  */
 void

@@ -26,7 +26,7 @@ main() {
 
     tutorial_separate_compilation();
     tutorial_namespaces();
-    tutorial_error_handling();
+    tutorial_function_arguments_and_return_values();
 
     std::cout << "======================================================="
               << std::endl;

@@ -23,17 +23,32 @@
  */
 
 namespace ch3_separate_compilation_impl {
+    /**
+     * @brief 简单的向量类，用于演示分离编译。
+     */
     class Vector {
     public:
+        /**
+         * @brief 使用给定大小构造（不初始化元素）。
+         * @param s 元素个数
+         */
         Vector(int s);
+        /**
+         * @brief 下标访问（返回可修改引用）。
+         * @param i 索引
+         * @return 第 i 个元素引用
+         */
         double&
         operator[](int i);
+        /**
+         * @brief 返回元素个数。
+         */
         int
         size();
 
     private:
-        double* elem;
-        int     sz;
+        double* elem;  ///< 指向元素的指针
+        int     sz;    ///< 元素个数
     };
 }  // namespace ch3_separate_compilation_impl
 

@@ -5,7 +5,7 @@ add_executable(3_modularity
                src/Vector.cpp
                src/3_2_separate_compilation.cpp
                src/3_3_namespaces.cpp
-               src/3_4_error_handling.cpp
+               src/3_4_function_arguments_and_return_values.cpp
 )
 
 target_include_directories(3_modularity PRIVATE
