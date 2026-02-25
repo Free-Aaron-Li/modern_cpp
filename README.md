@@ -63,6 +63,8 @@
 	- `include/`: 头文件目录。
 		- `modularity.hpp`: 模块化主头文件。
 		- `Vector.hpp`: 演示分离编译的类声明。
+	- `module`：模块目录。
+		- `module_vector.cpp`: 模块化实现 `Vector`。
 	- `src/`: 源代码目录。
 - `.clang-format`: C++ 代码格式化配置文件。
 - `.gitignore`: Git 忽略文件。
