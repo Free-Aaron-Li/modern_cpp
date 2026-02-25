@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file main.cpp
+ * @brief 第 3 章 模块化：示例程序入口
+ */
+
 #include "modularity.hpp"
 
 /**

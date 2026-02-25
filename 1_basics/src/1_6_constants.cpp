@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 1_6_constants.cpp
+ * @brief 第 1 章 基础：常量与常量表达式示例源文件
+ */
+
 #include "basics.hpp"
 
 using namespace std;

@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 2_2_structs.cpp
+ * @brief 第 2 章 用户自定义类型：结构体示例源文件
+ */
+
 #include "user_defined_types.hpp"
 
 using namespace std;
@@ -79,8 +84,8 @@ namespace ch2_structs_impl {
      */
     void
     f(Vector v, Vector& rv, Vector* pv) {
-        /* [[maybe_unused]] C++17 属性，告诉编译器即使这个变量/参数/函数/返回
-         * 值未被使用，也不要报“unused...”之类警告 */
+        /* [[maybe_unused]] C++17 属性，告诉编译器即使这个变量/参数/函数/返回值
+         * 未被使用，也不要报“unused...”之类警告 */
         [[maybe_unused]] int i1{ v.sz_ };   /* 通过名字访问 */
         [[maybe_unused]] int i2{ rv.sz_ };  /* 通过引用访问 */
         [[maybe_unused]] int i3{ pv->sz_ }; /* 通过指针访问 */

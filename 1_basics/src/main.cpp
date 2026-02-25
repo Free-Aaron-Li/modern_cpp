@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file main.cpp
+ * @brief 第 1 章 基础：示例程序入口
+ */
+
 
 #include "basics.hpp"
 

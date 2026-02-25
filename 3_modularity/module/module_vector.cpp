@@ -14,8 +14,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file module_vector.cpp
+ * @brief 第 3 章 模块化：模块化向量类（C++20 module）示例实现
+ */
+
 export module module_vector;
 
+/**
+ * @brief 3.2 分离编译相关的内部实现
+ */
 namespace ch3_separate_compilation_impl {
     /**
      * @brief 模块化向量类，用于演示 C++20 模块特性

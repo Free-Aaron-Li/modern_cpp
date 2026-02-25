@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 2_3_classes.cpp
+ * @brief 第 2 章 用户自定义类型：类（封装与接口）示例源文件
+ */
+
 #include "user_defined_types.hpp"
 
 using namespace std;

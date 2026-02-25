@@ -1,6 +1,6 @@
 # Modern CPP 学习项目
 
-本项目致力于通过实际代码示例来学习和掌握现代 C++ （C++ 11 及更高版本） 的核心特性和最佳实践。
+本项目致力于通过实际代码示例来学习和掌握现代 C++（C++11 及更高版本）的核心特性和最佳实践。
 
 ## 项目愿景
 
@@ -11,23 +11,23 @@
 
 ---
 
-### 1. 基础 （Basics）
+### 1. 基础（Basics）
 
 - **语言实体**：C++ 核心语言特性与标准库组件。
 - **程序结构**：ISO C++ 定义的基本实体与程序构成。
 
-### 2. 用户自定义类型 （User-Defined Types）
+### 2. 用户自定义类型（User-Defined Types）
 
 - **结构体与类**：展示如何通过 `struct` 和 `class` 构建自定义类型。
 - **枚举与联合**：探讨强类型枚举和联合体及其现代替代方案。
 
-### 3. 模块化 （Modularity）
+### 3. 模块化（Modularity）
 
 - **分离编译**：理解头文件与源文件的角色。
 - **命名空间**：避免命名冲突并组织代码。
 - **错误处理**：异常（Exceptions）、不变性（Invariants）和静态断言。
 
-### 4. 智能指针与 RAII （Smart Pointers & RAII）
+### 4. 智能指针与 RAII（Smart Pointers & RAII）
 
 - **RAII 手法**：展示如何通过对象的生命周期自动管理资源。
 - **内存管理**：涵盖了 `std::shared_ptr` 的基本用法，后续将深入探讨 `std::unique_ptr` 和 `std::weak_ptr`。
@@ -69,16 +69,18 @@
 - `CMakeLists.txt`: 整体项目 `CMake` 配置文件。
 - `Doxyfile`: Doxygen 配置文件。
 
+> 详细目录结构请参考：Doxygen 渲染生成的网页中 `文件` -> `文件列表` 界面。
+
 ## 如何开始
 
 ---
 
 ### 环境要求
 
-- 支持 C++ 23 或更高版本的编译器 （如 GCC 13+, Clang 16+, MSVC 17.4+）
+- 支持 C++ 23 或更高版本的编译器（如 GCC 13+、Clang 16+、MSVC 17.4+）
   ，具体请参考 [C++ 标准](https://en.cppreference.com/w/cpp/compiler_support)。
 - CMake 3.10+。
-- Doxygen 1.6.0+ （可选，用于生成文档）。
+- Doxygen 1.6.0+（可选，用于生成文档）。
 
 ### 构建与运行
 
@@ -115,4 +117,4 @@ doxygen Doxyfile
 
 ### 书籍参考
 
-[C++ 之旅 （第 3 版） —— Bjarne Stroustrup](https://book.douban.com/subject/36596125/)
+[C++ 之旅（第 3 版） —— Bjarne Stroustrup](https://book.douban.com/subject/36596125/)

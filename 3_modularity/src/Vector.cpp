@@ -14,8 +14,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "Vector.hpp" /**< 取得 Vector 的相关接口 */
+/**
+ * @file Vector.cpp
+ * @brief 第 3 章 模块化：Vector 类的实现（分离编译示例）
+ */
 
+#include "Vector.hpp"
+
+/**
+ * @brief 3.2 分离编译相关的内部实现
+ */
 namespace ch3_separate_compilation_impl {
     /**
      * @brief 构造函数实现

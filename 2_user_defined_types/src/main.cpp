@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file main.cpp
+ * @brief 第 2 章 用户自定义类型：示例程序入口
+ */
+
 #include "user_defined_types.hpp"
 
 /**

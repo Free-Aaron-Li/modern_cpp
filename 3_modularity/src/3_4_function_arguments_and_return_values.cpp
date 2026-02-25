@@ -14,21 +14,29 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 3_4_function_arguments_and_return_values.cpp
+ * @brief 第 3 章 模块化：函数参数与返回值示例源文件
+ */
+
 #include <map>
 
 #include "modularity.hpp"
 
 using namespace std;
 
+/**
+ * @brief 3.4 函数参数与返回值相关的内部实现
+ */
 namespace ch3_args_and_returns_impl {
     /**
      * @brief 演示不同的参数传递方式
      *
      * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
      *
-     * @param v 传值 (Copy)
-     * @param r 传引用 (Reference)
-     * @param cr 传常量引用 (Const Reference)
+     * @param v 传值（Copy）
+     * @param r 传引用（Reference）
+     * @param cr 传常量引用（Const Reference）
      */
     void
     test_argument_passing(int v, int& r, const int& cr) {
@@ -59,7 +67,7 @@ namespace ch3_args_and_returns_impl {
     }
 
     /**
-     * @brief 演示结构化绑定 (Structured Bindings)
+     * @brief 演示结构化绑定（Structured Bindings）
      *
      * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
      */

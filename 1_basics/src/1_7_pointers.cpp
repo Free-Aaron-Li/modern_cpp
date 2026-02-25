@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 1_7_pointers.cpp
+ * @brief 第 1 章 基础：指针、数组与引用示例源文件
+ */
+
 #include "basics.hpp"
 
 using namespace std;

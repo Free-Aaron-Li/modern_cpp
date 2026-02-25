@@ -14,10 +14,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 3_3_namespaces.cpp
+ * @brief 第 3 章 模块化：命名空间示例源文件
+ */
+
 #include "modularity.hpp"
 
 using namespace std;
 
+/**
+ * @brief 3.3 命名空间相关的内部实现
+ */
 namespace ch3_namespaces_impl {
     /**
      * @brief 简单的复数类，用于演示命名空间
@@ -87,7 +95,7 @@ ch3_namespaces_impl::main() {
  *
  * 介绍如何使用命名空间来组织代码，避免命名冲突。
  *
- * 对应《C++ 之旅》3.4 节（C++20 后为 3.4，之前版本可能不同）。
+ * 对应《C++ 之旅》3.3 节（C++20 后为 3.3，之前版本可能不同）。
  */
 void
 tutorial_namespaces() {

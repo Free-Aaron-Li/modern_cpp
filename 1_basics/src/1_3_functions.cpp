@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 1_3_functions.cpp
+ * @brief 第 1 章 基础：函数与重载示例源文件
+ */
+
 #include "basics.hpp"
 
 using namespace std;
@@ -27,7 +32,7 @@ namespace ch1_functions_impl {
      * @param a 整数参数
      * @param b 浮点数参数
      *
-     * 展示了当编译器发现多个同名函数但参数签名 （Signature） 不同时，会自动
+     * 展示了当编译器发现多个同名函数但参数签名（Signature）不同时，会自动
      * 选择匹配的函数进行调用。
      * 被 @ref tutorial_functions 调用。
      */
@@ -55,7 +60,7 @@ namespace ch1_functions_impl {
  * @ingroup basics_group
  * @brief 1.3 函数：重载与声明
  *
- * 演示 C++ 的函数重载 （Overloading） 机制。
+ * 演示 C++ 的函数重载（Overloading）机制。
  * 重载机制允许程序员对不同的参数类型集合使用相同的名字，从而提高代码的可读性。
  *
  * 对应《C++ 之旅》1.3 节。

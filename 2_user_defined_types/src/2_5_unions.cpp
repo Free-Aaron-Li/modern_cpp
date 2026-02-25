@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 2_5_unions.cpp
+ * @brief 第 2 章 用户自定义类型：联合（union）示例源文件
+ */
+
 #include "user_defined_types.hpp"
 
 using namespace std;
@@ -27,7 +32,7 @@ namespace ch2_unions_impl {
      *
      * 在 @ref tutorial_unions 中被演示使用。
      */
-    enum class Type { ptr, num }; /* Type可以是ptr或num */
+    enum class Type { ptr, num }; /* Type 可以是 ptr 或 num */
 
     /**
      * @brief 可变类型值的联合体
@@ -48,7 +53,7 @@ namespace ch2_unions_impl {
     };
 
     /**
-     * @brief 包含名字 and 可变类型值的实体结构
+     * @brief 包含名字与可变类型值的实体结构
      *
      * 在 @ref tutorial_unions 中被演示使用。
      */

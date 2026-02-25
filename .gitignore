@@ -38,7 +38,7 @@ cmake-build-*/
 
 # Documentation
 doxygen/
-*.txt
+doxygen*.txt
 !CMakeLists.txt
 
 # Temporary files

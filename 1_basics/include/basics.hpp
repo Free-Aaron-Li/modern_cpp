@@ -20,8 +20,6 @@
 /**
  * @file basics.hpp
  * @brief 第 1 章：基础章节主头文件
- *
- * @copyright Copyright (c) 2026 Aaron.
  */
 #include <iostream>
 #include <vector>

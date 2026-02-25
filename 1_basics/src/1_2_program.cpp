@@ -13,6 +13,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+/**
+ * @file 1_2_program.cpp
+ * @brief 第 1 章 基础：程序示例源文件
+ */
+
 #include "basics.hpp"
 
 using namespace std; /* 使 std 中的名称在不加 std:: 前缀时可见 */

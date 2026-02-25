@@ -14,6 +14,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/**
+ * @file 1_4_types.cpp
+ * @brief 第 1 章 基础：类型、变量与算术示例源文件
+ */
+
 #include <complex>
 
 #include "basics.hpp"

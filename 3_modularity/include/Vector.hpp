@@ -22,6 +22,9 @@
  * @brief 演示分离编译的 Vector 类声明
  */
 
+/**
+ * @brief 3.2 分离编译相关的内部实现
+ */
 namespace ch3_separate_compilation_impl {
     /**
      * @brief 简单的向量类，用于演示分离编译。
