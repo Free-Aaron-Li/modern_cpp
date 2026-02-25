@@ -28,6 +28,7 @@ namespace ch1_types_impl {
      * @brief 打印各内置类型占用的内存大小
      *
      * 演示 sizeof() 运算符，了解不同数据类型在硬件层面映射时的尺寸。
+     * 被 @ref tutorial_types 调用。
      * 位置：1_basics/src/1_4_types.cpp
      */
     void
@@ -50,6 +51,7 @@ namespace ch1_types_impl {
      * - 二进制（Binary，0b 开头）
      * - 十六进制（Hex，0x 开头）
      * - 八进制（Octal，0 开头）
+     * 被 @ref tutorial_types 调用。
      */
     void
     print_num() {
@@ -73,6 +75,7 @@ namespace ch1_types_impl {
      *
      * 展示了 C++11 引入的统一初始化（Uniform Initialization）语法，以及
      * 它如何通过禁止窄化转换来提高代码安全性。
+     * 被 @ref tutorial_types 调用。
      */
     void
     initialization_list() {

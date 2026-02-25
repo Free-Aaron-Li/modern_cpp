@@ -24,6 +24,8 @@ using namespace std;
 namespace ch2_structs_impl {
     /**
      * @brief 简单的向量结构体
+     *
+     * 在 @ref tutorial_structs 中被演示使用。
      */
     struct Vector {
         double* elem; /**< 指向元素的指针 */
@@ -36,6 +38,7 @@ namespace ch2_structs_impl {
      * @param s 元素数量
      *
      * 使用 new 从自由存储（堆）中分配内存。
+     * 被 @ref tutorial_structs 调用。
      */
     void
     vector_init(Vector& v, int s) { /* 非 const 引用参数，允许修改 v */
@@ -51,6 +54,8 @@ namespace ch2_structs_impl {
      * @brief 从标准输入读取元素并计算总和
      * @param s 元素数量
      * @return 元素的总和
+     *
+     * 被 @ref tutorial_structs 调用。
      */
     double
     read_and_sum(int s) {
@@ -69,6 +74,8 @@ namespace ch2_structs_impl {
      * @param v 按值传递
      * @param rv 按引用传递
      * @param pv 按指针传递
+     *
+     * 被 @ref tutorial_structs 调用。
      */
     void
     f(Vector v, Vector& rv, Vector* pv) {

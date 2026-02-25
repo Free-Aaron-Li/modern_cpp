@@ -47,9 +47,8 @@
  * @brief 2.2 结构体：演示 struct 的定义与初始化
  *
  * 介绍 C++ 中最简单的用户自定义类型，以及通过 new 在堆上分配内存。
- * 涵盖函数：`ch2_structs_impl::vector_init()`、
- * `ch2_structs_impl::read_and_sum()`
- * 和 `ch2_structs_impl::f()`
+ * 涉及：@ref ch2_structs_impl::Vector, @ref ch2_structs_impl::vector_init,
+ * @ref ch2_structs_impl::read_and_sum, @ref ch2_structs_impl::f
  */
 void
 tutorial_structs();
@@ -58,8 +57,7 @@ tutorial_structs();
  * @brief 2.3 类：演示 class 的封装与接口设计
  *
  * 介绍通过 public 和 private 关键字实现的访问控制，以及成员函数的定义。
- * 涵盖类：`ch2_classes_impl::Vector`；
- * 涵盖函数：`ch2_classes_impl::read_and_sum()`
+ * 涉及：@ref ch2_classes_impl::Vector, @ref ch2_classes_impl::read_and_sum
  */
 void
 tutorial_classes();
@@ -68,8 +66,8 @@ tutorial_classes();
  * @brief 2.4 枚举：演示 enum class
  *
  * 介绍强类型枚举（scoped enums）。
- * 涵盖：`ch2_enums_impl::Color`、`ch2_enums_impl::Traffic_light`；
- * 涵盖运算符：`ch2_enums_impl::operator++()`
+ * 涉及：@ref ch2_enums_impl::Color, @ref ch2_enums_impl::Traffic_light,
+ * @ref ch2_enums_impl::operator++(Traffic_light&)
  */
 void
 tutorial_enums();
@@ -78,7 +76,9 @@ tutorial_enums();
  * @brief 2.5 联合：演示 union 的内存布局与应用
  *
  * 展示如何在同一块内存区域存储不同类型的变量，以及它的风险与现代替代方案。
- * 涵盖函数：`ch2_unions_impl::print_entry()`
+ * 涉及：@ref ch2_unions_impl::Value, @ref ch2_unions_impl::Type,
+ * @ref ch2_unions_impl::Entry, @ref ch2_unions_impl::print_entry,
+ * @ref ch2_unions_impl::print_entry1
  */
 void
 tutorial_unions();

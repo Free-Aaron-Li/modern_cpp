@@ -45,18 +45,29 @@
 
 /**
  * @brief 3.2 分离编译：演示头文件与源文件的分离
+ *
+ * 涉及：@ref ch3_separate_compilation_impl::Vector, @ref
+ * ch3_separate_compilation_impl::ModularVector,
+ * @ref ch3_separate_compilation_impl::sqrt_sum, @ref
+ * ch3_separate_compilation_impl::module_sqrt_sum
  */
 void
 tutorial_separate_compilation();
 
 /**
  * @brief 3.3 命名空间：演示 namespace 的定义与使用
+ *
+ * 涉及：@ref ch3_namespaces_impl::complex
  */
 void
 tutorial_namespaces();
 
 /**
  * @brief 3.4 函数参数与返回值：演示参数传递与结构化绑定
+ *
+ * 涉及：@ref ch3_args_and_returns_impl::test_argument_passing, @ref
+ * ch3_args_and_returns_impl::test_structured_bindings,
+ * @ref ch3_args_and_returns_impl::Entry
  */
 void
 tutorial_function_arguments_and_return_values();

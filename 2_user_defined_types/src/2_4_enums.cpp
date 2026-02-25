@@ -24,6 +24,9 @@ using namespace std;
 namespace ch2_enums_impl {
     /**
      * @brief 颜色枚举类
+     *
+     * 在 @ref tutorial_enums 中被演示使用。
+     *
      * @details 枚举值作用域在 `enum class` 中，因此不能直接使用 `enum`
      * 类型。同时
      * 避免重复使用造成的混淆。同时具备独立作用域，使得成员名无法泄露至
@@ -33,11 +36,16 @@ namespace ch2_enums_impl {
 
     /**
      * @brief 交通灯枚举类
+     *
+     * 在 @ref tutorial_enums 中被演示使用。
      */
     enum class Traffic_light { green, yellow, red };
 
     /**
      * @brief 交通灯自增运算符
+     *
+     * 在 @ref tutorial_enums 中被演示使用。
+     *
      * @param t 交通灯引用
      * @return 更新后的交通灯引用
      */

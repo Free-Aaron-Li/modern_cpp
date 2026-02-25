@@ -35,7 +35,7 @@
  * @brief 1.2 程序：演示 C++ 程序的基本结构
  *
  * 展示了如何定义 `main` 函数以外的辅助函数，以及如何使用标准库中的 I/O 流。
- * 包含函数：`ch1_program_impl::square()`, `ch1_program_impl::print_square()`
+ * 涉及：@ref ch1_program_impl::square, @ref ch1_program_impl::print_square
  */
 void
 tutorial_program();
@@ -45,8 +45,7 @@ tutorial_program();
  *
  * 重点展示 C++ 的函数重载（Overloading）机制，即同名函数根据参数列表不同
  * 而区分。
- * 包含函数：`ch1_functions_impl::print(int, double)`、
- * `ch1_functions_impl::print(double, int)`
+ * 涉及：@ref ch1_functions_impl::print
  */
 void
 tutorial_functions();
@@ -56,7 +55,8 @@ tutorial_functions();
  *
  * 展示了 C++ 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等
  * 多种字面量的表示方法。
- * 包含函数：`ch1_types_impl::size_of_type()`、`ch1_types_impl::print_num()`
+ * 涉及：@ref ch1_types_impl::size_of_type, @ref ch1_types_impl::print_num,
+ * @ref ch1_types_impl::initialization_list
  */
 void
 tutorial_types();
@@ -66,8 +66,8 @@ tutorial_types();
  *
  * 区分不同类型的常量修饰符：`const` 承诺不改变值，`constexpr` 允许编译期计算，
  * `consteval` 强制编译期计算。
- * 包含函数：`ch1_constants_impl::square()`, `ch1_constants_impl::square1()`,
- * `ch1_constants_impl::sum()`
+ * 涉及：@ref ch1_constants_impl::square, @ref ch1_constants_impl::square1,
+ * @ref ch1_constants_impl::sum
  */
 void
 tutorial_constants();
@@ -76,7 +76,7 @@ tutorial_constants();
  * @brief 1.7 指针、数组与引用：演示基础内存操作
  *
  * 展示范围 `for` 语句遍历数组、指针的空值检查（nullptr）以及引用的别名特性。
- * 包含函数：`ch1_pointers_impl::print()`、`ch1_pointers_impl::increment()`
+ * 涉及：@ref ch1_pointers_impl::print, @ref ch1_pointers_impl::increment
  */
 void
 tutorial_pointers();
@@ -86,8 +86,8 @@ tutorial_pointers();
  *
  * 展示交互式输入处理、`if-else` 分支、`switch-case` 结构及各类循环（如
  * if-else、switch-case 等）。
- * 包含函数：`ch1_tests_impl::accept()`、`ch1_tests_impl::accept2()`、
- * `ch1_tests_impl::action()`
+ * 涉及：@ref ch1_tests_impl::accept, @ref ch1_tests_impl::accept2,
+ * @ref ch1_tests_impl::action, @ref ch1_tests_impl::Point
  */
 void
 tutorial_tests();

@@ -24,6 +24,9 @@ using namespace std;
 namespace ch1_constants_impl {
     /**
      * @brief 计算平方（可用于常量表达式）。
+     *
+     * 在 @ref tutorial_constants 中被演示使用。
+     *
      * @param value 待求平方的数值（按引用传入，但不会被修改）
      * @return `value * value`
      */
@@ -34,6 +37,9 @@ namespace ch1_constants_impl {
 
     /**
      * @brief 在编译期强制求值的平方函数。
+     *
+     * 在 @ref tutorial_constants 中被演示使用。
+     *
      * @param value 常量表达式参数
      * @return `value * value`
      */
@@ -44,6 +50,9 @@ namespace ch1_constants_impl {
 
     /**
      * @brief 计算向量中所有元素之和（运行期）。
+     *
+     * 在 @ref tutorial_constants 中被演示使用。
+     *
      * @param value 数值向量
      * @return 所有元素的累加和
      */

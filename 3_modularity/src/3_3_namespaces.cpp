@@ -19,13 +19,31 @@
 using namespace std;
 
 namespace ch3_namespaces_impl {
+    /**
+     * @brief 简单的复数类，用于演示命名空间
+     *
+     * 在 @ref tutorial_namespaces 中被演示使用。
+     */
     class complex {
     public:
+        /**
+         * @brief 构造函数
+         * @param r 实部
+         * @param i 虚部
+         */
         complex(double r, double i) : re{ r }, im{ i } {}
+        /**
+         * @brief 获取实部
+         * @return 实部值
+         */
         double
         real() const {
             return re;
         }
+        /**
+         * @brief 获取虚部
+         * @return 虚部值
+         */
         double
         imag() const {
             return im;
@@ -35,11 +53,21 @@ namespace ch3_namespaces_impl {
         double re, im;
     };
 
+    /**
+     * @brief 复数加法运算符重载
+     * @param a 第一个复数
+     * @param b 第二个复数
+     * @return 两个复数之和
+     */
     complex
     operator+(complex a, complex b) {
         return { a.real() + b.real(), a.imag() + b.imag() };
     }
 
+    /**
+     * @brief 演示命名空间使用的内部入口函数
+     * @return 状态码
+     */
     int
     main();
 }  // namespace ch3_namespaces_impl

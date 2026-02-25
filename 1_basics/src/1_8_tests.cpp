@@ -24,6 +24,9 @@ using namespace std;
 namespace ch1_tests_impl {
     /**
      * @brief 获取用户输入并返回布尔值
+     *
+     * 在 @ref tutorial_tests 中被演示使用。
+     *
      * @return 如果用户输入 'y' 返回 true，否则返回 false
      */
     bool
@@ -38,6 +41,9 @@ namespace ch1_tests_impl {
 
     /**
      * @brief 获取用户输入并返回布尔值（使用 switch 语句）
+     *
+     * 在 @ref tutorial_tests 中被演示使用。
+     *
      * @return 如果用户输入 'y' 返回 true，否则返回 false
      */
     bool
@@ -55,6 +61,8 @@ namespace ch1_tests_impl {
 
     /**
      * @brief 简单的点坐标结构体
+     *
+     * 在 @ref tutorial_tests 中被演示使用。
      */
     struct Point {
         int x_;  ///< x 轴坐标
@@ -66,6 +74,7 @@ namespace ch1_tests_impl {
      *
      * 演示了循环（while）、字符串读取（cin）以及在循环体内更新坐标点。
      * 支持 'u'（up）、'n'（north）、'r'（right）、'e'（east）等输入字符。
+     * 被 @ref tutorial_tests 调用。
      */
     void
     action() {

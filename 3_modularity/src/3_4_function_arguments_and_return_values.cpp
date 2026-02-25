@@ -23,6 +23,9 @@ using namespace std;
 namespace ch3_args_and_returns_impl {
     /**
      * @brief 演示不同的参数传递方式
+     *
+     * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
+     *
      * @param v 传值 (Copy)
      * @param r 传引用 (Reference)
      * @param cr 传常量引用 (Const Reference)
@@ -35,6 +38,11 @@ namespace ch3_args_and_returns_impl {
         (void) cr;
     }
 
+    /**
+     * @brief 简单的条目结构
+     *
+     * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
+     */
     struct Entry {
         string name;
         int    value;
@@ -42,6 +50,8 @@ namespace ch3_args_and_returns_impl {
 
     /**
      * @brief 演示返回多个值（通过结构体和结构化绑定）
+     *
+     * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
      */
     Entry
     get_entry() {
@@ -50,6 +60,8 @@ namespace ch3_args_and_returns_impl {
 
     /**
      * @brief 演示结构化绑定 (Structured Bindings)
+     *
+     * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
      */
     void
     test_structured_bindings() {

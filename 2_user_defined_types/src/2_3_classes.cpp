@@ -25,6 +25,8 @@ namespace ch2_classes_impl {
 
     /**
      * @brief 简单的向量类
+     *
+     * 在 @ref tutorial_classes 中被演示使用。
      */
     class Vector {
     public:
@@ -65,6 +67,8 @@ namespace ch2_classes_impl {
      * @brief 从标准输入读取元素并计算总和
      * @param s 元素数量
      * @return 元素的总和
+     *
+     * 被 @ref tutorial_classes 调用。
      */
     double
     read_and_sum(int s) {

@@ -24,11 +24,16 @@ using namespace std;
 namespace ch2_unions_impl {
     /**
      * @brief 表示 Entry 中存储的数据类型
+     *
+     * 在 @ref tutorial_unions 中被演示使用。
      */
     enum class Type { ptr, num }; /* Type可以是ptr或num */
 
     /**
      * @brief 可变类型值的联合体
+     *
+     * 在 @ref tutorial_unions 中被演示使用。
+     *
      * @details 联合体（union）允许在同一块内存中存储不同类型的数据，
      * 但同一时刻只能使用其中一个成员。这里定义了指针和整数两种类型，
      * 通过配合 Type 枚举和 Entry 结构体来跟踪当前存储的实际类型。
@@ -43,7 +48,9 @@ namespace ch2_unions_impl {
     };
 
     /**
-     * @brief 包含名字和可变类型值的实体结构
+     * @brief 包含名字 and 可变类型值的实体结构
+     *
+     * 在 @ref tutorial_unions 中被演示使用。
      */
     struct Entry {
         std::string        name; /**< 名字 */
@@ -54,6 +61,9 @@ namespace ch2_unions_impl {
 
     /**
      * @brief 打印 Entry 实体的内容（使用 union 版本）
+     *
+     * 在 @ref tutorial_unions 中被演示使用。
+     *
      * @param e 待打印的 Entry 引用
      * @details 根据 Type 枚举值判断当前使用的联合体成员，
      * 然后输出相应的值。这种方式需要手动维护类型信息。
@@ -69,6 +79,9 @@ namespace ch2_unions_impl {
 
     /**
      * @brief 打印 Entry 实体的内容（使用 std::variant 版本）
+     *
+     * 在 @ref tutorial_unions 中被演示使用。
+     *
      * @param e 待打印的 Entry 引用
      * @details 使用 std::variant 的类型安全机制，通过 holds_alternative
      * 检查当前存储的类型，并使用 get 获取相应的值。这是现代 C++ 推荐

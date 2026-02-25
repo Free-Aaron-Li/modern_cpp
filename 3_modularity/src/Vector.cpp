@@ -14,18 +14,32 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-#include "Vector.hpp"
+#include "Vector.hpp" /**< 取得 Vector 的相关接口 */
 
 namespace ch3_separate_compilation_impl {
-    Vector::Vector(int s) : elem{ new double[s] }, sz{ s } {}
+    /**
+     * @brief 构造函数实现
+     * @param s 向量的大小
+     */
+    Vector::Vector(int s) : elem_{ new double[s] }, sz_{ s } {}
 
+
+    /**
+     * @brief 下标运算符重载实现
+     * @param i 索引位置
+     * @return 返回第 i 个元素的引用（可修改）
+     */
     double&
-    Vector::operator[](int i) {
-        return elem[i];
+    Vector::operator[](int i) const {
+        return elem_[i];
     }
 
+    /**
+     * @brief 获取向量大小
+     * @return 返回向量中元素的个数
+     */
     int
-    Vector::size() {
-        return sz;
+    Vector::size() const {
+        return sz_;
     }
 }  // namespace ch3_separate_compilation_impl

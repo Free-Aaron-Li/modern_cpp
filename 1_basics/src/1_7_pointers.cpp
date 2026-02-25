@@ -24,6 +24,8 @@ using namespace std;
 namespace ch1_pointers_impl {
     /**
      * @brief 演示数组遍历（范围 for）
+     *
+     * 在 @ref tutorial_pointers 中被演示使用。
      */
     void
     print() {
@@ -37,6 +39,8 @@ namespace ch1_pointers_impl {
 
     /**
      * @brief 演示通过引用遍历数组并累加
+     *
+     * 在 @ref tutorial_pointers 中被演示使用。
      */
     void
     increment() {

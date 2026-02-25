@@ -27,6 +27,7 @@ namespace ch1_program_impl {
      * @return x 的平方值
      *
      * 这是一个简单的数学辅助函数，用于演示函数的定义和返回值。
+     * 被 @ref tutorial_program 调用。
      * 位置：1_basics/src/1_2_program.cpp
      */
     double
@@ -40,6 +41,7 @@ namespace ch1_program_impl {
      *
      * 该函数内部调用了 square() 函数，演示了函数间的相互调用以及 std::cout
      * 的格式化输出。
+     * 被 @ref tutorial_program 调用。
      */
     void
     print_square(double x) {

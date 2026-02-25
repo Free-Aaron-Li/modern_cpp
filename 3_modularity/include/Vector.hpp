@@ -25,6 +25,8 @@
 namespace ch3_separate_compilation_impl {
     /**
      * @brief 简单的向量类，用于演示分离编译。
+     *
+     * 在 @ref tutorial_separate_compilation 中被演示使用。
      */
     class Vector {
     public:
@@ -39,16 +41,16 @@ namespace ch3_separate_compilation_impl {
          * @return 第 i 个元素引用
          */
         double&
-        operator[](int i);
+        operator[](int i) const;
         /**
          * @brief 返回元素个数。
          */
         int
-        size();
+        size() const;
 
     private:
-        double* elem;  ///< 指向元素的指针
-        int     sz;    ///< 元素个数
+        double* elem_;  ///< 指向元素的指针
+        int     sz_;    ///< 元素个数
     };
 }  // namespace ch3_separate_compilation_impl
 

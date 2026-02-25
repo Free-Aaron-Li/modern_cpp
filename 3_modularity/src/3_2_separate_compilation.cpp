@@ -14,10 +14,51 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include <cmath>
+
 #include "Vector.hpp"
 #include "modularity.hpp"
 
+import module_vector; /**< 引入模块 */
+//import cmath;         /**< 引入标准库，但是非常抱歉，这仍然是不可靠的，具体查看文档 */
+
 using namespace std;
+
+namespace ch3_separate_compilation_impl {
+    /**
+     * @brief 计算向量中所有元素平方根的总和（使用头文件方式的 Vector）
+     * 
+     * 遍历向量中的每个元素，对每个元素求平方根后累加，
+     * 用于演示传统头文件方式的分离编译。
+     * 被 @ref tutorial_separate_compilation 调用。
+     * 
+     * @param v 输入的 Vector 对象（常量引用）
+     * @return 返回所有元素平方根的总和
+     */
+    double
+    sqrt_sum(const Vector &v) {
+        double sum{ 0 };
+        for (int i{ 0 }; i != v.size(); ++i) { sum += sqrt(v[i]); }
+        return sum;
+    }
+    
+    /**
+     * @brief 计算向量中所有元素平方根的总和（使用模块化方式的 ModularVector）
+     * 
+     * 遍历向量中的每个元素，对每个元素求平方根后累加，
+     * 用于演示 C++20 模块化特性的分离编译方式。
+     * 被 @ref tutorial_separate_compilation 调用。
+     * 
+     * @param v 输入的 ModularVector 对象（常量引用）
+     * @return 返回所有元素平方根的总和
+     */
+    double module_sqrt_sum(const ModularVector &v) {
+        double sum{ 0 };
+        for (int i{ 0 }; i != v.size(); ++i) { sum += sqrt(v[i]); }
+        return sum;
+    }
+}  // namespace ch3_separate_compilation_impl
+
 
 /**
  * @ingroup modularity_group
@@ -25,7 +66,7 @@ using namespace std;
  *
  * 介绍 C++ 如何通过头文件 (.hpp/.h) 包含接口声明，
  * 以及源文件 (.cpp) 包含具体实现，从而支持分离编译。
- * 涵盖：`ch3_sep_comp_impl::Vector`
+ * 涵盖：`ch3_sep_comp_impl::Vector` 及 `ch3_sep_comp_impl::ModularVector`
  *
  * 对应《C++ 之旅》3.2 节。
  */
@@ -37,8 +78,9 @@ tutorial_separate_compilation() {
     Vector v(6);
     for (int i = 0; i < v.size(); ++i) { v[i] = i * i; }
 
-    double sum = 0;
-    for (int i = 0; i < v.size(); ++i) { sum += v[i]; }
+    ModularVector mv(6);
+    for (int i = 0; i < mv.size(); ++i) { mv[i] = i * i; }
 
-    cout << "Sum of square of [0, 6) is: " << sum << endl;
+    cout << "Sum of square of [0, 6) is: " << sqrt_sum(v) << endl;
+    cout << "[Using module] Sum of square of [0, 6) is: " << module_sqrt_sum(mv) << endl;
 }
