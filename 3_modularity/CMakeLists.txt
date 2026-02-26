@@ -1,3 +1,9 @@
+# 第 3 章 模块化（Modularity）子项目构建配置
+#
+# 本子项目包含模块化相关的示例代码，包括：
+# - 分离编译（头文件方式与模块方式）
+# - 命名空间的使用
+# - 函数参数与返回值
 add_executable(3_modularity
                src/main.cpp
                include/modularity.hpp

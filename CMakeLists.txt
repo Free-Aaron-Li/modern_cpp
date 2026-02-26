@@ -1,3 +1,11 @@
+# Modern C++ 学习项目构建配置
+#
+# 本项目通过实际代码示例来学习和掌握现代 C++（C++11 及更高版本）的核心特性。
+#
+# 构建方式：
+# 1. 创建构建目录：mkdir build && cd build
+# 2. 配置项目：cmake ..
+# 3. 编译并运行：make && ./bin/<子项目名称>
 cmake_minimum_required(VERSION 4.1)
 project(modern_cpp LANGUAGES C CXX)
 

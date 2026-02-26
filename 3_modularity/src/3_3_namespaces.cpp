@@ -80,6 +80,10 @@ namespace ch3_namespaces_impl {
     main();
 }  // namespace ch3_namespaces_impl
 
+/**
+ * @brief 演示命名空间内部的主函数
+ * @return 状态码
+ */
 int
 ch3_namespaces_impl::main() {
     complex z{ 1, 2 };
