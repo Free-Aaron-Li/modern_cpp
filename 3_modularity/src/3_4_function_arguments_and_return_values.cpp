@@ -19,16 +19,31 @@
  * @brief 第 3 章 模块化：函数参数与返回值示例源文件
  */
 
-#include <map>
-
 #include "modularity.hpp"
 
-using namespace std;
 
 /**
  * @brief 3.4 函数参数与返回值相关的内部实现
  */
 namespace ch3_args_and_returns_impl {
+
+    /**
+     * @brief 计算向量中元素的和
+     *
+     * 该函数演示了常量引用参数的传递。
+     *
+     * @param v 包含整数的常量引用向量
+     * @return 元素的总和
+     */
+    int
+    sum(const std::vector<int>& v) {
+        /** 以引用方式传入，考虑到 vector 对象很大情况。
+            同时本函数并没有修改参数的理由，出于安全考虑以常量引用方式传入。*/
+        int s{ 0 };
+        for (const int i: v) { s += i; }
+        return s;
+    }
+
     /**
      * @brief 演示不同的参数传递方式
      *
@@ -52,8 +67,8 @@ namespace ch3_args_and_returns_impl {
      * 在 @ref tutorial_function_arguments_and_return_values 中被演示使用。
      */
     struct Entry {
-        string name;
-        int    value;
+        std::string name;
+        int         value;
     };
 
     /**
@@ -74,11 +89,12 @@ namespace ch3_args_and_returns_impl {
     void
     test_structured_bindings() {
         auto [n, v] = get_entry();
-        cout << "Structured binding: name = " << n << ", value = " << v << endl;
+        std::cout << "Structured binding: name = " << n << ", value = " << v
+                  << std::endl;
 
-        map<string, int> m = { { "a", 1 }, { "b", 2 } };
+        std::map<std::string, int> m = { { "a", 1 }, { "b", 2 } };
         for (const auto& [key, val]: m) {
-            cout << "Key: " << key << ", Value: " << val << endl;
+            std::cout << "Key: " << key << ", Value: " << val << std::endl;
         }
     }
 }  // namespace ch3_args_and_returns_impl
@@ -92,12 +108,18 @@ namespace ch3_args_and_returns_impl {
 void
 tutorial_function_arguments_and_return_values() {
     using namespace ch3_args_and_returns_impl;
-    cout << "--- 3.4 Function Arguments and Return Values ---" << endl;
+    std::cout << "--- 3.4 Function Arguments and Return Values ---"
+              << std::endl;
+
+    const std::vector<int> fib{ 1, 2, 3, 5, 8, 13, 21 };
+    const int              res = sum(fib);
+    std::cout << "Sum of Fibonacci sequence: " << res << std::endl;
+
 
     int x = 1, y = 2, z = 3;
-    cout << "Before: x=" << x << ", y=" << y << ", z=" << z << endl;
+    std::cout << "Before: x=" << x << ", y=" << y << ", z=" << z << std::endl;
     test_argument_passing(x, y, z);
-    cout << "After:  x=" << x << ", y=" << y << ", z=" << z << endl;
+    std::cout << "After:  x=" << x << ", y=" << y << ", z=" << z << std::endl;
 
     test_structured_bindings();
 }

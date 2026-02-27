@@ -28,8 +28,6 @@ import module_vector; /**< 引入模块 */
 // import std;         /**<
 // 引入标准库，但是非常抱歉，这仍然是不可靠的，具体查看文档 */
 
-using namespace std;
-
 /**
  * @brief 3.2 分离编译相关的内部实现
  */
@@ -45,9 +43,11 @@ namespace ch3_separate_compilation_impl {
      * @return 返回所有元素平方根的总和
      */
     double
-    sqrt_sum(const Vector &v) {
+    sqrt_sum(const Vector& v) {
         double sum{ 0 };
-        for (int i{ 0 }; i != v.size(); ++i) { sum += sqrt(v[i]); }
+        for (int i{ 0 }; i != v.size(); ++i) {
+            sum += std::sqrt(v[i]);
+        }
         return sum;
     }
 
@@ -62,9 +62,11 @@ namespace ch3_separate_compilation_impl {
      * @return 返回所有元素平方根的总和
      */
     double
-    module_sqrt_sum(const ModularVector &v) {
+    module_sqrt_sum(const ModularVector& v) {
         double sum{ 0 };
-        for (int i{ 0 }; i != v.size(); ++i) { sum += sqrt(v[i]); }
+        for (int i{ 0 }; i != v.size(); ++i) {
+            sum += std::sqrt(v[i]);
+        }
         return sum;
     }
 }  // namespace ch3_separate_compilation_impl
@@ -84,15 +86,19 @@ namespace ch3_separate_compilation_impl {
 void
 tutorial_separate_compilation() {
     using namespace ch3_separate_compilation_impl;
-    cout << "--- 3.2 Separate Compilation ---" << endl;
+    std::cout << "--- 3.2 Separate Compilation ---" << std::endl;
 
     Vector v(6);
-    for (int i = 0; i < v.size(); ++i) { v[i] = i * i; }
+    for (int i = 0; i < v.size(); ++i) {
+        v[i] = i * i;
+    }
 
     ModularVector mv(6);
-    for (int i = 0; i < mv.size(); ++i) { mv[i] = i * i; }
+    for (int i = 0; i < mv.size(); ++i) {
+        mv[i] = i * i;
+    }
 
-    cout << "Sum of square of [0, 6) is: " << sqrt_sum(v) << endl;
-    cout << "[Using module] Sum of square of [0, 6) is: " << module_sqrt_sum(mv)
-         << endl;
+    std::cout << "Sum of square of [0, 6) is: " << sqrt_sum(v) << std::endl;
+    std::cout << "[Using module] Sum of square of [0, 6) is: "
+              << module_sqrt_sum(mv) << std::endl;
 }

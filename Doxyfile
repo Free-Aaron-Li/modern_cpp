@@ -1186,7 +1186,7 @@ INPUT_FILTER           =
 # need to set EXTENSION_MAPPING for the extension otherwise the files are not
 # properly processed by Doxygen.
 
-FILTER_PATTERNS        = *.md="./filter.sh" \
+FILTER_PATTERNS        = *.md="./doxygen_tools/filter.sh" \
                          *.hpp="sed -e 's/==\([^=]*\)==/@mark{\1}/g'" \
                          *.cpp="sed -e 's/==\([^=]*\)==/@mark{\1}/g'"
 
@@ -1459,7 +1459,7 @@ HTML_STYLESHEET        =
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_STYLESHEET  = ./doxygen_tools/doxygen_custom.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
@@ -2348,7 +2348,7 @@ MAN_LINKS              = NO
 # captures the structure of the code including all documentation.
 # The default value is: NO.
 
-GENERATE_XML           = NO
+GENERATE_XML           = YES
 
 # The XML_OUTPUT tag is used to specify where the XML pages will be put. If a
 # relative path is entered the value of OUTPUT_DIRECTORY will be put in front of

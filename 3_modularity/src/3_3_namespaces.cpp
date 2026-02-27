@@ -21,8 +21,6 @@
 
 #include "modularity.hpp"
 
-using namespace std;
-
 /**
  * @brief 3.3 命名空间相关的内部实现
  */
@@ -40,6 +38,7 @@ namespace ch3_namespaces_impl {
          * @param i 虚部
          */
         complex(double r, double i) : re{ r }, im{ i } {}
+
         /**
          * @brief 获取实部
          * @return 实部值
@@ -48,6 +47,7 @@ namespace ch3_namespaces_impl {
         real() const {
             return re;
         }
+
         /**
          * @brief 获取虚部
          * @return 虚部值
@@ -89,7 +89,10 @@ ch3_namespaces_impl::main() {
     complex z{ 1, 2 };
     complex z2{ 3, 4 };
     complex z3 = z + z2;
-    cout << "z3 = (" << z3.real() << ", " << z3.imag() << "i)" << endl;
+
+    std::cout << "z3 = (" << z3.real() << ", " << z3.imag() << "i)"
+              << std::endl;
+
     return 0;
 }
 
@@ -103,6 +106,6 @@ ch3_namespaces_impl::main() {
  */
 void
 tutorial_namespaces() {
-    cout << "--- 3.3 Namespaces ---" << endl;
+    std::cout << "--- 3.3 Namespaces ---" << std::endl;
     ch3_namespaces_impl::main();
 }

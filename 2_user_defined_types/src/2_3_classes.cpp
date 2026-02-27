@@ -39,8 +39,8 @@ namespace ch2_classes_impl {
          * @brief 构造函数
          * @param s 元素数量
          *
-         * 在初始化类对象时一定会被调用，因此定义一个构造函数可以消除类变量未初
-         * 始化造成的问题。
+         * 在初始化类对象时一定会被调用，
+         * 因此定义一个构造函数可以消除类变量未初始化造成的问题。
          */
         Vector(int s) : elem{ new double[s] }, sz{ s } {}
 

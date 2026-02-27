@@ -49,9 +49,8 @@ namespace ch2_structs_impl {
     vector_init(Vector& v, int s) { /* 非 const 引用参数，允许修改 v */
         v.elem = new double[s];
         /* 分配数组空间，包含 s 个 double 类型的值 */
-        /* new
-         * 从自由存储（即动态内存或堆）中分配内存，与对象创建时所在
-         * 的作用域无关，会持续存在，直至被 `delete` 释放 */
+        /* new 从自由存储（即动态内存或堆）中分配内存，与对象创建时所在
+         * 作用域无关，会持续存在，直至被 `delete` 释放 */
         v.sz_ = s;
     }
 
@@ -84,8 +83,9 @@ namespace ch2_structs_impl {
      */
     void
     f(Vector v, Vector& rv, Vector* pv) {
-        /* [[maybe_unused]] C++17 属性，告诉编译器即使这个变量/参数/函数/返回值
-         * 未被使用，也不要报“unused...”之类警告 */
+        /* [[maybe_unused]] C++17 属性，
+         * 告诉编译器即使这个变量/参数/函数/返回值未被使用，
+         * 也不要报“unused...”之类警告 */
         [[maybe_unused]] int i1{ v.sz_ };   /* 通过名字访问 */
         [[maybe_unused]] int i2{ rv.sz_ };  /* 通过引用访问 */
         [[maybe_unused]] int i3{ pv->sz_ }; /* 通过指针访问 */

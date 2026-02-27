@@ -6,7 +6,7 @@
 # 1. 创建构建目录：mkdir build && cd build
 # 2. 配置项目：cmake ..
 # 3. 编译并运行：make && ./bin/<子项目名称>
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.31)
 project(modern_cpp LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 23)

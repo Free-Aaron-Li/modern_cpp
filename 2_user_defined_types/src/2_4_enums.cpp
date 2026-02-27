@@ -33,9 +33,8 @@ namespace ch2_enums_impl {
      * 在 @ref tutorial_enums 中被演示使用。
      *
      * @details 枚举值作用域在 `enum class` 中，因此不能直接使用 `enum`
-     * 类型。同时
-     * 避免重复使用造成的混淆。同时具备独立作用域，使得成员名无法泄露至
-     * 外部作用域，同时避免隐式混用枚举与整数。
+     * 类型。同时避免重复使用造成的混淆。同时具备独立作用域，
+     * 使得成员名无法泄露至外部作用域，同时避免隐式混用枚举与整数。
      */
     enum class Color { red, blue, green };
 
