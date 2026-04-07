@@ -49,5 +49,6 @@ smart_pointer.bak/
 *.bak
 *.bakup
 
-# ai conf
+# ai conf && ai test files
 .ai/
+doxygen.log

@@ -51,8 +51,7 @@ tutorial_functions();
 /**
  * @brief 1.4 类型、变量与算术：演示内置类型与算术运算
  *
- * 展示了 C++ 中各内置类型的大小（sizeof
- * ），以及二进制、十六进制、八进制等多种字面量的表示方法。
+ * 展示了 C++ 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等多种字面量的表示方法。
  * 涉及：@ref ch1_types_impl::size_of_type, @ref ch1_types_impl::print_num,
  * @ref ch1_types_impl::initialization_list
  */
@@ -80,10 +79,9 @@ void
 tutorial_pointers();
 
 /**
- * @brief 1.8 检验：演示条件判断与循环
+ * @brief 1.8 检验：演示条件判断与分支结构
  *
- * 展示交互式输入处理、`if-else` 分支、`switch-case` 结构及各类循环（如
- * if-else、switch-case 等）。
+ * 展示交互式输入处理、`if-else` 分支及 `switch-case` 结构。
  * 涉及：@ref ch1_tests_impl::accept, @ref ch1_tests_impl::accept2,
  * @ref ch1_tests_impl::action, @ref ch1_tests_impl::Point
  */

@@ -88,10 +88,12 @@ namespace ch3_args_and_returns_impl {
      */
     void
     test_structured_bindings() {
-        auto [n, v] = get_entry();
-        std::cout << "Structured binding: name = " << n << ", value = " << v
-                  << std::endl;
+        /**< 返回多个值 */
+        auto e = get_entry();
+        std::cout << "Structured binding: name = " << e.name
+                  << ", value = " << e.value << std::endl;
 
+        /**< 解包：将变量集合转化为局部变量 */
         std::map<std::string, int> m = { { "a", 1 }, { "b", 2 } };
         for (const auto& [key, val]: m) {
             std::cout << "Key: " << key << ", Value: " << val << std::endl;

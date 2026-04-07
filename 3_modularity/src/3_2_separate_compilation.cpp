@@ -45,9 +45,7 @@ namespace ch3_separate_compilation_impl {
     double
     sqrt_sum(const Vector& v) {
         double sum{ 0 };
-        for (int i{ 0 }; i != v.size(); ++i) {
-            sum += std::sqrt(v[i]);
-        }
+        for (int i{ 0 }; i != v.size(); ++i) { sum += std::sqrt(v[i]); }
         return sum;
     }
 
@@ -64,9 +62,7 @@ namespace ch3_separate_compilation_impl {
     double
     module_sqrt_sum(const ModularVector& v) {
         double sum{ 0 };
-        for (int i{ 0 }; i != v.size(); ++i) {
-            sum += std::sqrt(v[i]);
-        }
+        for (int i{ 0 }; i != v.size(); ++i) { sum += std::sqrt(v[i]); }
         return sum;
     }
 }  // namespace ch3_separate_compilation_impl
@@ -89,14 +85,10 @@ tutorial_separate_compilation() {
     std::cout << "--- 3.2 Separate Compilation ---" << std::endl;
 
     Vector v(6);
-    for (int i = 0; i < v.size(); ++i) {
-        v[i] = i * i;
-    }
+    for (int i = 0; i < v.size(); ++i) { v[i] = i * i; }
 
     ModularVector mv(6);
-    for (int i = 0; i < mv.size(); ++i) {
-        mv[i] = i * i;
-    }
+    for (int i = 0; i < mv.size(); ++i) { mv[i] = i * i; }
 
     std::cout << "Sum of square of [0, 6) is: " << sqrt_sum(v) << std::endl;
     std::cout << "[Using module] Sum of square of [0, 6) is: "

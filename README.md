@@ -50,7 +50,6 @@
 
 - `docs/`: 包含详细的学习笔记。
 	- `1_基础.md`: C++ 基础概念解析。
-	- `1_智能指针概说.md`: 智能指针与 RAII 的详细解析。
 - `1_basics/`: 包含 C++ 基础相关的示例。
 	- `include/`: 头文件目录。
 		- `1_basics.hpp`: 基础章节主头文件。
@@ -79,7 +78,7 @@
 
 ### 环境要求
 
-- 支持 C++ 23 或更高版本的编译器（如 GCC 13+、Clang 16+、MSVC 17.4+）
+- 支持 C++23 或更高版本的编译器（如 GCC 13+、Clang 16+、MSVC 17.4+）
   ，具体请参考 [C++ 标准](https://en.cppreference.com/w/cpp/compiler_support)。
 - CMake 3.10+。
 - Doxygen 1.6.0+（可选，用于生成文档）。
@@ -104,8 +103,8 @@
 在项目根目录下运行：
 
 ```bash
-doxygen Doxyfile
-```
+   doxygen Doxyfile
+   ```
 
 然后打开 `doxygen/html/index.html` 查看。
 
