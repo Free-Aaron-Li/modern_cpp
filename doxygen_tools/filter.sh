@@ -8,12 +8,5 @@
 CONTENT=$(cat "$1")
 FILENAME=$(basename "$1")
 
-# 为主要文档文件自动添加 ID
-if [ "$FILENAME" == "1_基础.md" ]; then
-    CONTENT="<!-- id:basics_doc -->\n$CONTENT"
-elif [ "$FILENAME" == "further_reading.md" ]; then
-    CONTENT="<!-- id:further_reading -->\n$CONTENT"
-fi
-
 # 使用 perl 方便处理跨行
 echo -e "$CONTENT" | perl -0777 -pe 's/==([^=]*)==/\@mark{$1}/g; s/\*\*(.*?)\*\*/<b>$1<\/b>/g; s/(?<!\*)\*([^\*\n]+?)\*(?!\*)/<i>$1<\/i>/g; s/<!-- id:(\S+) -->\s*\n\s*(#+)\s*(.*)/$2 $3 {#$1}/g; s/\[([^\]]+)\]\(\.\.\/[^\)]+\/([^\/\)]+)\)/\@ref $2 "$1"/g; s/\[([^\]]+)\]\(#([^ \)]+)\)/\@ref $2 "$1"/g; s/\[([^\]]+)\]\(\.\/1_基础.md\)/\@ref basics_doc "$1"/g'
