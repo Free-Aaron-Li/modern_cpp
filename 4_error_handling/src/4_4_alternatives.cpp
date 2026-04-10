@@ -65,18 +65,9 @@ namespace ch4_alternatives_impl {
         // 1. 错误码方式
         std::error_code ec;
         double          res1 = safe_sqrt(-1.0, ec);
-        if (ec) {
-            std::cout << "Error code approach: " << ec.message() << " (res: " <<
-                    res1 << ")" << std::endl;
-        }
 
         // 2. std::optional 方式
         auto res2 = safe_sqrt_opt(-1.0);
-        if (!res2) {
-            std::cout <<
-                    "std::optional approach: Value not present for negative input"
-                    << std::endl;
-        }
     }
 } // namespace ch4_alternatives_impl
 
@@ -84,8 +75,6 @@ namespace ch4_alternatives_impl {
  * @ingroup error_handling_module_group
  * @brief 4.4 错误处理的其他替代方式入口
  */
-auto
-tutorial_error_handling_alternatives() -> void {
     std::cout << "--- 4.4 Error Handling Alternatives ---" << std::endl;
     ch4_alternatives_impl::test_alternatives();
 }
