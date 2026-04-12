@@ -78,9 +78,9 @@ namespace ch1_types_impl {
     /**
      * @brief 演示统一初始化与窄化转换
      *
-     * 展示了 C++11 引入的统一初始化（Uniform Initialization
-     * ）语法，以及它如何通过禁止窄化转换来提高代码安全性。
-     * 被 @ref tutorial_types 调用。
+     * 展示了 C++11 引入的统一初始化（Uniform
+     * Initialization）语法，以及它如何通过禁止窄化转换来提高代码安全性。 被
+     * @ref tutorial_types 调用。
      */
     void
     initialization_list() {

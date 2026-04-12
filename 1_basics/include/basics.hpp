@@ -51,7 +51,8 @@ tutorial_functions();
 /**
  * @brief 1.4 类型、变量与算术：演示内置类型与算术运算
  *
- * 展示了 C++ 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等多种字面量的表示方法。
+ * 展示了 C++
+ * 中各内置类型的大小（sizeof），以及二进制、十六进制、八进制等多种字面量的表示方法。
  * 涉及：@ref ch1_types_impl::size_of_type, @ref ch1_types_impl::print_num,
  * @ref ch1_types_impl::initialization_list
  */

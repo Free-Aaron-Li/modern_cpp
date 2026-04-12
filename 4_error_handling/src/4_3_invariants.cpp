@@ -35,12 +35,12 @@ namespace ch4_invariants_impl {
     class Vector {
     public:
         /**
-         * @brief 构造函数，包含不变式检´查
+         * @brief 构造函数，包含不变式检查
          * @param s 向量大小
          * @throws std::length_error 如果大小为负数
          */
         explicit /** explicit 阻止编译器进行“隐式转换” */
-        Vector(const int s) {
+                Vector(const int s) {
             if (s < 0) {
                 throw std::length_error{ "Vector constructor: negative size" };
             }
@@ -59,7 +59,9 @@ namespace ch4_invariants_impl {
          * @return 元素的引用
          */
         auto
-        operator[](const int i) -> double& { return elem_[i]; }
+        operator[](const int i) -> double& {
+            return elem_[i];
+        }
 
         /**
          * @brief 下标运算符，不包含边界检查（演示核心不变式）
@@ -68,18 +70,22 @@ namespace ch4_invariants_impl {
          * @details 深层只读写法
          */
         auto
-        operator[](const int i) const -> const double& { return elem_[i]; }
+        operator[](const int i) const -> const double& {
+            return elem_[i];
+        }
 
         /**
          * @brief 获取当前大小
          * @return 向量大小
          */
         [[nodiscard]] auto
-        size() const -> int { return sz_; }
+        size() const -> int {
+            return sz_;
+        }
 
     private:
-        double* elem_; ///< 指向元素的指针
-        int     sz_;   ///< 向量的大小
+        double* elem_;  ///< 指向元素的指针
+        int     sz_;    ///< 向量的大小
     };
 
     /**
@@ -90,9 +96,8 @@ namespace ch4_invariants_impl {
         try {
             Vector v(-27); /** 触发长度错误 */
 
-            /** 注意：在异常触发前，系统会被严重拖慢,此外 macos 具备内存 overcommit 行为
- ´            * 不一定稳定触发 bad_alloc
-             */
+            /** 注意：在异常触发前，系统会被严重拖慢，此外 macOS 具备内存
+             * overcommit 行为，不一定稳定触发 bad_alloc */
             // Vector v1(1'000'000'000);
         } catch (const std::length_error& err) {
             std::cerr << "Caught invariant error: " << err.what() << std::endl;
@@ -100,7 +105,7 @@ namespace ch4_invariants_impl {
             std::cerr << "Memory allocation failed" << std::endl;
         }
     }
-} // namespace ch4_invariants_impl
+}  // namespace ch4_invariants_impl
 
 /**
  * @ingroup error_handling_module_group

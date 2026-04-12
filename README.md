@@ -5,6 +5,7 @@
 ## 项目愿景
 
 ---
+
 现代 C++ 引入了许多强大的特性，如自动内存管理、右值引用、Lambda 表达式、模板增强等。本项目通过模块化的方式，逐一探讨这些特性的实现原理与应用场景。
 
 ## 当前模块
@@ -43,19 +44,19 @@
 
 <!-- @ref basic_concepts 第 1 章 基础 -->
 
-- [第 1 章 基础](@ref basic_concepts): C++ 基础概念、核心语言特性与标准库。
+- [第 1 章 基础](@ref basic_concepts)：C++ 基础概念、核心语言特性与标准库。
 
 <!-- @ref user_defined_types 第 2 章 用户自定义类型 -->
 
-- [第 2 章 用户自定义类型](@ref user_defined_types): 结构体、类、枚举与联合。
+- [第 2 章 用户自定义类型](@ref user_defined_types)：结构体、类、枚举与联合。
 
 <!-- @ref modularity 第 3 章 模块化 -->
 
-- [第 3 章 模块化](@ref modularity): 分离编译、命名空间与函数参数。
+- [第 3 章 模块化](@ref modularity)：分离编译、命名空间与函数参数。
 
 <!-- @ref error_handling 第 4 章 错误处理 -->
 
-- [第 4 章 错误处理](@ref error_handling): 异常、约束条件、替代方式与断言。
+- [第 4 章 错误处理](@ref error_handling)：异常、约束条件、替代方式与断言。
 
 > **提示**：本项目仍处于开发阶段，后续还会添加许多其他章节（如模板元编程、并发编程、STL 深入解析等）。
 
@@ -63,33 +64,33 @@
 
 ---
 
-- `docs/`: 包含详细的学习笔记。
-	- `1_基础.md`: C++ 基础概念解析。
-- `1_basics/`: 包含 C++ 基础相关的示例。
-	- `include/`: 头文件目录。
-		- `1_basics.hpp`: 基础章节主头文件。
-	- `src/`: 源代码目录。
-- `2_user_defined_types/`: 包含用户自定义类型相关的示例。
-	- `include/`: 头文件目录。
-		- `user_defined_types.hpp`: 用户自定义类型主头文件。
-	- `src/`: 源代码目录。
-- `3_modularity/`: 包含模块化相关的示例。
-	- `include/`: 头文件目录。
-		- `modularity.hpp`: 模块化主头文件。
-		- `Vector.hpp`: 演示分离编译的类声明。
+- `docs/`：包含详细的学习笔记。
+	- `1_基础.md`：C++ 基础概念解析。
+- `1_basics/`：包含 C++ 基础相关的示例。
+	- `include/`：头文件目录。
+		- `1_basics.hpp`：基础章节主头文件。
+	- `src/`：源代码目录。
+- `2_user_defined_types/`：包含用户自定义类型相关的示例。
+	- `include/`：头文件目录。
+		- `user_defined_types.hpp`：用户自定义类型主头文件。
+	- `src/`：源代码目录。
+- `3_modularity/`：包含模块化相关的示例。
+	- `include/`：头文件目录。
+		- `modularity.hpp`：模块化主头文件。
+		- `Vector.hpp`：演示分离编译的类声明。
 	- `module`：模块目录。
-		- `module_vector.cpp`: 模块化实现 `Vector`。
-	- `src/`: 源代码目录。
-- `4_error_handling/`: 包含错误处理相关的示例。
-	- `module/`: 模块目录。
-		- `error_handling.cpp`: 模块化实现错误处理示例。
-	- `src/`: 源代码目录。
-- `.clang-format`: C++ 代码格式化配置文件。
-- `.gitignore`: Git 忽略文件。
-- `CMakeLists.txt`: 整体项目 `CMake` 配置文件。
-- `Doxyfile`: Doxygen 配置文件。
+		- `module_vector.cpp`：模块化实现 `Vector`。
+	- `src/`：源代码目录。
+- `4_error_handling/`：包含错误处理相关的示例。
+	- `module/`：模块目录。
+		- `error_handling.cpp`：模块化实现错误处理示例。
+	- `src/`：源代码目录。
+- `.clang-format`：C++ 代码格式化配置文件。
+- `.gitignore`：Git 忽略文件。
+- `CMakeLists.txt`：整体项目 `CMake` 配置文件。
+- `Doxyfile`：Doxygen 配置文件。
 
-> 详细目录结构请参考：Doxygen 渲染生成的网页中 `文件` -> `文件列表` 界面。
+> 详细目录结构请参考：Doxygen 渲染生成的网页中“文件” -> “文件列表”界面。
 
 ## 如何开始
 
@@ -97,8 +98,8 @@
 
 ### 环境要求
 
-- 支持 C++23 或更高版本的编译器（如 GCC 13+、Clang 16+、MSVC 17.4+）
-  ，具体请参考 [C++ 标准](https://en.cppreference.com/w/cpp/compiler_support)。
+- 支持 C++23 或更高版本的编译器（如 GCC 13+、Clang 16+、MSVC
+  17.4+），具体请参考 [C++ 标准](https://en.cppreference.com/w/cpp/compiler_support)。
 - CMake 3.10+。
 - Doxygen 1.6.0+（可选，用于生成文档）。
 

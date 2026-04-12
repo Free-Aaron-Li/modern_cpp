@@ -32,8 +32,7 @@ namespace ch1_functions_impl {
      * @param a 整数参数
      * @param b 浮点数参数
      *
-     * 展示了当编译器发现多个同名函数但参数签名（Signature
-     * ）不同时，会自动选择匹配的函数进行调用。
+     * 展示了当编译器发现多个同名函数但参数签名（Signature）不同时，会自动选择匹配的函数进行调用。
      * 被 @ref tutorial_functions 调用。
      */
     void
@@ -47,8 +46,8 @@ namespace ch1_functions_impl {
      * @param b 整数参数
      *
      * 与 print(int, double)
-     * 构成重载，两者的参数顺序不同，这也属于不同的函数签名。
-     * 被 @ref tutorial_functions 调用。
+     * 构成重载，两者的参数顺序不同，这也属于不同的函数签名。 被 @ref
+     * tutorial_functions 调用。
      */
     void
     print(double a, int b) {

@@ -69,12 +69,14 @@ namespace ch4_alternatives_impl {
         // 2. std::optional 方式
         auto res2 = safe_sqrt_opt(-1.0);
     }
-} // namespace ch4_alternatives_impl
+}  // namespace ch4_alternatives_impl
 
 /**
  * @ingroup error_handling_module_group
  * @brief 4.4 错误处理的其他替代方式入口
  */
+void
+tutorial_error_handling_alternatives() {
     std::cout << "--- 4.4 Error Handling Alternatives ---" << std::endl;
     ch4_alternatives_impl::test_alternatives();
 }

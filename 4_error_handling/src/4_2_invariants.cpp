@@ -25,54 +25,56 @@ module;
 
 module error_handling;
 
+/**
+ * @brief 4.3 约束条件：相关实现命名空间
+ */
+namespace ch4_invariants_impl {
     /**
-     * @brief 4.3 约束条件：相关实现命名空间
+     * @brief 4.3 示例类 Vector：带有不变式检查
      */
-    namespace ch4_invariants_impl {
+    class Vector {
+    public:
         /**
-         * @brief 4.3 示例类 Vector：带有不变式检查
+         * @brief 构造函数，包含不变式检查
+         * @param s 向量大小
+         * @throws std::length_error 如果大小为负数
          */
-        class Vector {
-        public:
-            /**
-             * @brief 构造函数，包含不变式检查
-             * @param s 向量大小
-             * @throws std::length_error 如果大小为负数
-             */
-            Vector(int s) {
-                if (s < 0) { throw std::length_error{ "Vector constructor: negative size" }; }
-                elem_ = new double[s];
-                sz_   = s;
+        Vector(int s) {
+            if (s < 0) {
+                throw std::length_error{ "Vector constructor: negative size" };
             }
+            elem_ = new double[s];
+            sz_   = s;
+        }
 
-            /**
-             * @brief 析构函数，释放资源
-             */
-            ~Vector() { delete[] elem_; }
+        /**
+         * @brief 析构函数，释放资源
+         */
+        ~Vector() { delete[] elem_; }
 
-            /**
-             * @brief 下标运算符，不包含边界检查（演示核心不变式）
-             * @param i 索引
-             * @return 元素的引用
-             */
-            double&
-            operator[](int i) {
-                return elem_[i];
-            }
+        /**
+         * @brief 下标运算符，不包含边界检查（演示核心不变式）
+         * @param i 索引
+         * @return 元素的引用
+         */
+        double&
+        operator[](int i) {
+            return elem_[i];
+        }
 
-            /**
-             * @brief 获取当前大小
-             * @return 向量大小
-             */
-            int
-            size() const {
-                return sz_;
-            }
+        /**
+         * @brief 获取当前大小
+         * @return 向量大小
+         */
+        int
+        size() const {
+            return sz_;
+        }
 
-        private:
-            double* elem_;  ///< 指向元素的指针
-            int     sz_;    ///< 向量的大小
-        };
+    private:
+        double* elem_;  ///< 指向元素的指针
+        int     sz_;    ///< 向量的大小
+    };
 
     /**
      * @brief 演示函数：构造函数中的不变式检查

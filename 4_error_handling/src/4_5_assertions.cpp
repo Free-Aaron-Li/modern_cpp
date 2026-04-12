@@ -33,10 +33,10 @@ namespace ch4_assertions_impl {
      * @brief 错误动作：定义当断言失败时采取的操作
      */
     enum class ErrorAction {
-        ignore,      ///< 忽略：不执行任何操作
-        throwing,    ///< 抛出：抛出异常
-        terminating, ///< 终止：调用 std::terminate() 终止程序
-        logging      ///< 日志：向标准错误流输出错误信息
+        ignore,       ///< 忽略：不执行任何操作
+        throwing,     ///< 抛出：抛出异常
+        terminating,  ///< 终止：调用 std::terminate() 终止程序
+        logging       ///< 日志：向标准错误流输出错误信息
     };
 
     /**
@@ -48,8 +48,8 @@ namespace ch4_assertions_impl {
      * @brief 错误码：定义常见的错误类型
      */
     enum class ErrorCode {
-        range_error, ///< 范围错误
-        length_error ///< 长度错误
+        range_error,  ///< 范围错误
+        length_error  ///< 长度错误
     };
 
     /**
@@ -64,7 +64,8 @@ namespace ch4_assertions_impl {
      * @param cond 检查条件（一个可调用对象）
      * @param x 错误码
      *
-     * 该函数使用 if constexpr 进行编译期分支优化，根据 action 的不同采取不同的错误处理策略。
+     * 该函数使用 if constexpr 进行编译期分支优化，根据 action
+     * 的不同采取不同的错误处理策略。
      */
     template<ErrorAction action = default_error_action, class C>
     constexpr auto
@@ -72,8 +73,7 @@ namespace ch4_assertions_impl {
         if constexpr (action == ErrorAction::logging) {
             if (!cond()) {
                 std::cerr << "expect() failure: " << static_cast<int>(x) << " "
-                        <<
-                        error_code_name[static_cast<int>(x)] << std::endl;
+                          << error_code_name[static_cast<int>(x)] << std::endl;
             }
         }
         if constexpr (action == ErrorAction::throwing) {
@@ -83,7 +83,6 @@ namespace ch4_assertions_impl {
         if constexpr (action == ErrorAction::terminating) {
             if (!cond()) { std::terminate(); }
         }
-
     }
 
     /**
@@ -96,7 +95,9 @@ namespace ch4_assertions_impl {
          * @return 向量中的元素数量
          */
         [[nodiscard]] auto
-        size() const -> int { return sz_; }
+        size() const -> int {
+            return sz_;
+        }
 
         /**
          * @brief 下标运算符，带范围检查
@@ -107,13 +108,13 @@ namespace ch4_assertions_impl {
          */
         auto
         operator[](const int i) const {
-            expect([i,this] { return 0 <= i && i < size(); },
+            expect([i, this] { return 0 <= i && i < size(); },
                    ErrorCode::range_error);
         }
 
     private:
-        double* elem_{ nullptr }; ///< 指向元素的指针
-        int     sz_{ 0 };         ///< 向量大小
+        double* elem_{ nullptr };  ///< 指向元素的指针
+        int     sz_{ 0 };          ///< 向量大小
     };
 
     /**
@@ -122,11 +123,12 @@ namespace ch4_assertions_impl {
      * assert 主要用于调试阶段，检查那些“绝对不应该发生”的情况。
      * 当定义了 NDEBUG 宏时，assert 会被编译器忽略。
      */
-    void
+    auto
     test_runtime_assert() {
         constexpr int x{ 10 };
-        assert(x > 0); /// 如果条件为假，程序将终止并报错
-        /** 报错情况：Assertion failed: (x < 0), function test_runtime_assert, file 4_5_assertions.cpp, line 128. */
+        assert(x > 0);  /// 如果条件为假，程序将终止并报错
+        /** 报错情况：Assertion failed: (x < 0), function test_runtime_assert,
+         * file 4_5_assertions.cpp, line 128. */
         std::cout << "Runtime assertion passed." << std::endl;
     }
 
@@ -135,12 +137,12 @@ namespace ch4_assertions_impl {
      *
      * static_assert 在编译期验证条件，不符合条件将导致编译失败。
      */
-    void
+    auto
     test_static_assert() {
         constexpr double speed_of_light = 299792458;
         static_assert(speed_of_light > 0, "Speed of light must be positive");
-        std::cout << "Static assertion passed (verified at compile time)." <<
-                std::endl;
+        std::cout << "Static assertion passed (verified at compile time)."
+                  << std::endl;
     }
 
     /**
@@ -149,11 +151,12 @@ namespace ch4_assertions_impl {
      * noexcept 承诺函数不会抛出异常。
      * 如果在 noexcept 函数内抛出异常，程序会调用 std::terminate() 直接中止。
      */
-    void
+    auto
     test_noexcept() noexcept {
         std::cout << "About to violate noexcept..." << std::endl;
-        //throw ErrorCode::range_error;
-        /** 报错信息：libc++abi: terminating due to uncaught exception of type ch4_assertions_impl::ErrorCode@error_handling */
+        // throw ErrorCode::range_error;
+        /** 报错信息：libc++abi: terminating due to uncaught exception of type
+         * ch4_assertions_impl::ErrorCode@error_handling */
     }
 
     /**
@@ -162,15 +165,16 @@ namespace ch4_assertions_impl {
      * 调用 expect 函数并指定 ErrorAction::terminating 策略。
      * 如果条件不满足，程序将直接调用 std::terminate()。
      */
-    void
+    auto
     test_expect_termination() {
-        std::cout <<
-                "Testing expect with ErrorAction::terminating (this will stop the program if it fails)..."
-                << std::endl;
+        std::cout << "Testing expect with ErrorAction::terminating (this will "
+                     "stop the program if it fails)..."
+                  << std::endl;
         // 若要观察终止行为，请取消下面代码的注释
-        // expect<ErrorAction::terminating>([] { return 1 == 2; }, ErrorCode::range_error);
+        // expect<ErrorAction::terminating>([] { return 1 == 2; },
+        // ErrorCode::range_error);
     }
-} // namespace ch4_assertions_impl
+}  // namespace ch4_assertions_impl
 
 /**
  * @ingroup error_handling_module_group

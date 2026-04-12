@@ -25,62 +25,65 @@ module;
 
 module error_handling;
 
+/**
+ * @brief 4.2 异常：相关实现命名空间
+ */
+namespace ch4_exceptions_impl {
     /**
-     * @brief 4.2 异常：相关实现命名空间
+     * @brief 4.2 示例类 Vector：演示越界检查
      */
-    namespace ch4_exceptions_impl {
+    class Vector {
+    public:
         /**
-         * @brief 4.2 示例类 Vector：演示越界检查
+         * @brief 构造函数
+         * @param s 向量大小
          */
-        class Vector {
-        public:
-            /**
-             * @brief 构造函数
-             * @param s 向量大小
-             */
-            Vector(int s) : elem_{ new double[s] }, sz_{ s } {}
-
-            /**
-             * @brief 析构函数，释放内存
-             */
-            ~Vector() { delete[] elem_; }
-
-            /**
-             * @brief 访问指定位置的元素，执行越界检查
-             * @param i 索引
-             * @return 元素的引用
-             * @throws std::out_of_range 如果索引超出范围
-             */
-            double&
-            operator[](int i) {
-                if (i < 0 || size() <= i) { throw std::out_of_range{ "Vector::operator[]" }; }
-                return elem_[i];
-            }
-
-            /**
-             * @brief 获取向量大小
-             * @return 向量维度
-             */
-            int
-            size() const {
-                return sz_;
-            }
-
-        private:
-            double* elem_;  ///< 元素数组指针
-            int     sz_;    ///< 向量维度
-        };
+        Vector(int s) : elem_{ new double[s] }, sz_{ s } {}
 
         /**
-         * @brief 演示函数：捕获越界异常
+         * @brief 析构函数，释放内存
          */
-        void
-        test_out_of_range() {
+        ~Vector() { delete[] elem_; }
+
+        /**
+         * @brief 访问指定位置的元素，执行越界检查
+         * @param i 索引
+         * @return 元素的引用
+         * @throws std::out_of_range 如果索引超出范围
+         */
+        double&
+        operator[](int i) {
+            if (i < 0 || size() <= i) {
+                throw std::out_of_range{ "Vector::operator[]" };
+            }
+            return elem_[i];
+        }
+
+        /**
+         * @brief 获取向量大小
+         * @return 向量维度
+         */
+        int
+        size() const {
+            return sz_;
+        }
+
+    private:
+        double* elem_;  ///< 元素数组指针
+        int     sz_;    ///< 向量维度
+    };
+
+    /**
+     * @brief 演示函数：捕获越界异常
+     */
+    void
+    test_out_of_range() {
         Vector v(5);
         try {
             v[10] = 7;  ///< 触发异常
         } catch (const std::out_of_range& err) {
-            std::cerr << "Caught expected exception: " << err.what() << std::endl;
+            std::cerr << "Caught expected exception: " << err.what()
+                      << std::endl;
         }
     }
 }  // namespace ch4_exceptions_impl

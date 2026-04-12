@@ -38,9 +38,7 @@ namespace ch4_exceptions_impl {
          * @brief 构造函数
          * @param s 向量大小
          */
-        explicit
-        Vector(const int s) :
-            elem_{ new double[s] }, sz_{ s } {}
+        explicit Vector(const int s) : elem_{ new double[s] }, sz_{ s } {}
 
         /**
          * @brief 析构函数，释放内存
@@ -56,11 +54,11 @@ namespace ch4_exceptions_impl {
          * 外部仍然可以通过返回值引用修改底层数据，最合理的方式是编写：
          * - 非 const 版本：返回 double&
          * - const 版本：返回 const double&
-         * 现在编写的方式是不完整的，仅做学习使用
+         * 现在编写的方式是不完整的，仅做学习使用。
          *
          * throw 指令创建的 out_of_range 类型的异常，将异常的控制权转移给
          * 直接或间接调用 Vector::operator[]() 函数的用户。编译器在实现上
-         * 需要通过 @a 回溯函数 调用栈并找到调用者的上下文，而在此过程中可能
+         * 需要通过 @a 回溯函数调用栈并找到调用者的上下文，而在此过程中可能
          * 会调用析构函数。
          */
         auto
@@ -76,11 +74,13 @@ namespace ch4_exceptions_impl {
          * @return 向量维度
          */
         [[nodiscard]] auto /** nodiscard 的含义是这个返回值不应该被忽略 */
-        size() const -> int { return sz_; }
+        size() const -> int {
+            return sz_;
+        }
 
     private:
-        double* elem_; ///< 元素数组指针
-        int     sz_;   ///< 向量维度
+        double* elem_;  ///< 元素数组指针
+        int     sz_;    ///< 向量维度
     };
 
     /**
@@ -92,11 +92,11 @@ namespace ch4_exceptions_impl {
         try {          /** 异常处理机制 */
             v[10] = 7; /** 触发异常 */
         } catch (const std::out_of_range& err) {
-            std::cerr << "Caught expected exception: " << err.what() <<
-                    std::endl;
+            std::cerr << "Caught expected exception: " << err.what()
+                      << std::endl;
         }
     }
-} // namespace ch4_exceptions_impl
+}  // namespace ch4_exceptions_impl
 
 /**
  * @ingroup error_handling_module_group
