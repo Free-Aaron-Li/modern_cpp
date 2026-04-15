@@ -19,6 +19,9 @@
  * @brief 第 4 章 错误处理：C++20 模块主接口文件
  */
 
+/**
+ * @brief 错误处理示例模块，构建第四章程序入口与各子章节的桥梁。
+ */
 export module error_handling;
 
 /**

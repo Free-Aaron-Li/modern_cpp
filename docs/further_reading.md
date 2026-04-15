@@ -8,3 +8,4 @@
 - @subpage user_defined_types
 - @subpage modularity
 - @subpage error_handling
+- @subpage classes_chapter

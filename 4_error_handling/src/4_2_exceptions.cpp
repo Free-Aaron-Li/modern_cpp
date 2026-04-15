@@ -19,7 +19,7 @@
  * @brief 第 4 章 错误处理：4.2 异常处理示例实现
  */
 
-module; /**< 全局模块片段，定义旧式头文件、宏等 */
+module; /** 全局模块片段，定义旧式头文件、宏等 */
 #include <iostream>
 #include <stdexcept>
 
@@ -38,7 +38,9 @@ namespace ch4_exceptions_impl {
          * @brief 构造函数
          * @param s 向量大小
          */
-        explicit Vector(const int s) : elem_{ new double[s] }, sz_{ s } {}
+        explicit
+        Vector(const int s) :
+            elem_{ new double[s] }, sz_{ s } {}
 
         /**
          * @brief 析构函数，释放内存
@@ -74,13 +76,11 @@ namespace ch4_exceptions_impl {
          * @return 向量维度
          */
         [[nodiscard]] auto /** nodiscard 的含义是这个返回值不应该被忽略 */
-        size() const -> int {
-            return sz_;
-        }
+        size() const -> int { return sz_; }
 
     private:
-        double* elem_;  ///< 元素数组指针
-        int     sz_;    ///< 向量维度
+        double* elem_; ///< 元素数组指针
+        int     sz_;   ///< 向量维度
     };
 
     /**
@@ -93,10 +93,10 @@ namespace ch4_exceptions_impl {
             v[10] = 7; /** 触发异常 */
         } catch (const std::out_of_range& err) {
             std::cerr << "Caught expected exception: " << err.what()
-                      << std::endl;
+                    << std::endl;
         }
     }
-}  // namespace ch4_exceptions_impl
+} // namespace ch4_exceptions_impl
 
 /**
  * @ingroup error_handling_module_group
