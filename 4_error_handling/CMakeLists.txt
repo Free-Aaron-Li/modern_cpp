@@ -12,6 +12,7 @@ add_executable(4_error_handling
                src/4_3_invariants.cpp
                src/4_4_alternatives.cpp
                src/4_5_assertions.cpp
+               src/4_2_invariants.cpp
 )
 
 # C++ Modules：把提供 module 的文件放进 CXX_MODULES 的 FILE_SET

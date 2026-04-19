@@ -22,6 +22,7 @@
 module;
 #include <iostream>
 #include <vector>
+#include <initializer_list>
 module classes;
 
 /**
@@ -165,15 +166,78 @@ namespace ch5_concrete_types_impl {
     class Vector {
 
     public:
-        Vector(int s) :
-            elem_{ new double[s] }, sz_{ s } {
-            for (int i = 0; i != s; ++i) elem_[i] = 0;
+        explicit
+        Vector(const int s) :
+            elems_{ new double[s] }, sz_{ s } {
+            if (s < 0) {
+                throw std::out_of_range("Vector index out of range.");
+            }
+            for (int i = 0; i < s; ++i) elems_[i] = 0;
         }
 
-        ~Vector() { delete[] elem_; }
+        /**
+         * @brief 使用初始化列表构造 Vector
+         *
+         * 允许使用 {1.0, 2.0, 3.0} 这样的语法初始化 Vector。
+         *
+         * @param init 初始化列表，包含要存储的双精度浮点数值。
+         */
+        Vector(const std::initializer_list<double> init) :
+            elems_{ new double[init.size()] },
+            sz_{ static_cast<int>(init.size()) } {
+            /** static_cast 并不负责检查要转换的值 */
+            int i = 0;
+            for (const auto& val: init) { elems_[i++] = val; }
+        }
+
+        /**
+         * @brief 移动构造函数
+         *
+         * 从另一个 Vector 对象移动资源，避免不必要的内存分配和复制。
+         * 源对象的指针被置为 nullptr，大小被置为 0。
+         *
+         * @param other 被移动的 Vector 对象（右值引用）。
+         */
+        Vector(Vector&& other) noexcept :
+            elems_{ other.elems_ }, sz_{ other.sz_ } {
+            other.elems_ = nullptr;
+            other.sz_    = 0;
+        }
+
+        ~Vector() {
+            /** 释放数组 */
+            std::cout << "delete elements.\n";
+            delete[] elems_;
+        }
+
+        /**
+         * @brief 移动赋值运算符
+         *
+         * 释放当前对象的资源，然后从另一个 Vector 对象移动资源。
+         * 源对象的指针被置为 nullptr，大小被置为 0。
+         *
+         * @param other 被移动的 Vector 对象（右值引用）。
+         * @return Vector& 返回当前对象的引用。
+         */
+        auto
+        operator=(Vector&& other) noexcept -> Vector& {
+            if (this != &other) {
+                delete[] elems_;
+                elems_       = other.elems_;
+                sz_          = other.sz_;
+                other.elems_ = nullptr;
+                other.sz_    = 0;
+            }
+            return *this;
+        }
 
         auto
-        operator[](const int i) -> double& { return elem_[i]; }
+        operator[](const int i) -> double& {
+            if (i < 0 || i >= sz_) {
+                throw std::out_of_range("Vector index out of range.");
+            }
+            return elems_[i];
+        }
 
         /**
          * @brief 通过下标访问指定索引的元素（只读）。
@@ -186,13 +250,50 @@ namespace ch5_concrete_types_impl {
          * @details const 成员函数重载。
          */
         auto
-        operator[](const int i) const -> const double& { return elem_[i]; }
+        operator[](const int i) const -> const double& {
+            if (i < 0 || i >= sz_) {
+                throw std::out_of_range("Vector index out of range.");
+            }
+            return elems_[i];
+        }
+
+        /**
+         * @brief 向 Vector 末尾添加一个元素
+         *
+         * 该方法使用移动语义重新分配内存以容纳新元素，将现有元素复制到新数组中，
+         * 然后添加新元素。通过移动语义转移资源所有权，避免显式的手动释放。
+         *
+         * @param value 要添加的双精度浮点数值。
+         */
+        auto
+        push_back(const double value) -> void {
+            auto* new_elems = new double[sz_ + 1];
+            for (int i = 0; i < sz_; ++i) { new_elems[i] = elems_[i]; }
+            new_elems[sz_] = value;
+
+            // 创建临时 Vector 并使用移动赋值转移资源
+            Vector temp(0);
+            temp.elems_ = new_elems;
+            temp.sz_    = sz_ + 1;
+            *this       = std::move(temp);
+        }
+
+        auto
+        push_back1(const double value) -> void {
+            auto* new_elems = new double[sz_ + 1];
+            for (int i = 0; i < sz_; ++i) { new_elems[i] = elems_[i]; }
+            new_elems[sz_] = value;
+
+            delete[] elems_;
+            elems_ = new_elems;
+            ++sz_;
+        }
 
         [[nodiscard]] auto
         size() const -> int { return sz_; }
 
     private:
-        double* elem_{ nullptr };
+        double* elems_{ nullptr };
         int     sz_{ 0 };
 
     };
@@ -212,6 +313,29 @@ namespace ch5_concrete_types_impl {
                 << "Complex c:" << "{" << c.real() << ", " << c.imag() <<
                 "}.\n";
     };
+
+    auto
+    test_vector() {
+        using namespace ch5_concrete_types_impl;
+        Vector v1 = { 1, 2, 3, 4 };
+        Vector v2{ 1.2, 1.4, 1.5, 1.6 };
+        Vector v3(4);
+
+        v3.push_back(14);
+        v3.push_back1(10);
+
+        std::cout << "Vector v1 (size=" << v1.size() << "): ";
+        for (int i = 0; i < v1.size(); ++i) { std::cout << v1[i] << " "; }
+        std::cout << "\n";
+
+        std::cout << "Vector v2 (size=" << v2.size() << "): ";
+        for (int i = 0; i < v2.size(); ++i) { std::cout << v2[i] << " "; }
+        std::cout << "\n";
+
+        std::cout << "Vector v3 (size=" << v3.size() << "): ";
+        for (int i = 0; i < v3.size(); ++i) { std::cout << v3[i] << " "; }
+        std::cout << "\n";
+    }
 }
 
 
@@ -221,19 +345,8 @@ namespace ch5_concrete_types_impl {
  */
 auto
 tutorial_concrete_types() -> void {
+    using namespace ch5_concrete_types_impl;
     std::cout << "--- 5.2 Concrete Types ---" << std::endl;
-
-    ch5_concrete_types_impl::Complex       z{ 1, 2 };
-    const ch5_concrete_types_impl::Complex cz{ 2, 3 };
-
-    z = cz; /** 可行：赋值给非 const 变量 */
-    // 变cz = z;  /**< 不可行：赋值给 const*/
-    double x = z.real(); /** 可行：complex::real() 是 const */
-    ch5_concrete_types_impl::test_complex();
-
-    std::cout << "Complex: " << z.real() << " + " << z.imag() << "i" <<
-            std::endl;
-
-    ch5_concrete_types_impl::Vector v(5);
-    std::cout << "Vector size: " << v.size() << std::endl;
+    test_complex();
+    test_vector();
 }
